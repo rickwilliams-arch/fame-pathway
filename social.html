@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAME On Air | The FAME Pathway — Floyd County CCA</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Sans Culottes Font CDN & Google Fonts (Special Elite Typewriter, Inter Clean Body, JetBrains Mono) -->
+    <link href="https://fonts.cdnfonts.com/css/sans-culottes" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <script>
+        if (typeof tailwind !== 'undefined') {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            obsidian: '#0a0a0a',
+                            charcoal: '#121212',
+                            slateDark: '#1c1c1c',
+                            iron: '#2a2a2a',
+                            ash: '#888888',
+                            silver: '#b5b5b5',
+                            chalk: '#f2f2f2',
+                        },
+                        fontFamily: {
+                            display: ['"Sans Culottes"', 'Georgia', 'serif'],
+                            typewriter: ['"Special Elite"', 'monospace'],
+                            mono: ['"JetBrains Mono"', 'monospace'],
+                            sans: ['Inter', 'sans-serif'],
+                        }
+                    }
+                }
+            };
+        }
+    </script>
+
+    <style>
+        /* Core Color & Typography Fallbacks (Ensures full Noir theme even if external CDN is delayed) */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --bg-card: #161616;
+            --border-iron: #2a2a2a;
+            --text-chalk: #f2f2f2;
+            --text-silver: #b5b5b5;
+            --text-ash: #888888;
+        }
+
+        html, body {
+            background-color: #0a0a0a !important;
+            color: #f2f2f2 !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Sans Culottes', Georgia, serif;
+        }
+
+        .font-typewriter {
+            font-family: 'Special Elite', 'Courier New', monospace;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+        }
+
+        .bg-obsidian { background-color: #0a0a0a; }
+        .bg-charcoal { background-color: #121212; }
+        .bg-slateDark { background-color: #1c1c1c; }
+        .border-iron { border-color: #2a2a2a; }
+        .text-chalk { color: #f2f2f2; }
+        .text-silver { color: #b5b5b5; }
+        .text-ash { color: #888888; }
+
+        /* Subtle SVG Film Grain Overlay across entire viewport */
+        .film-grain {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.055;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Vignette radial shadow for cinematic depth */
+        .cinematic-vignette {
+            background: radial-gradient(circle at center, rgba(18, 18, 18, 0.25) 0%, rgba(10, 10, 10, 0.92) 85%, #0a0a0a 100%);
+        }
+
+        /* Distressed Concrete / Scratch backdrop pattern */
+        .grunge-surface {
+            background-color: #111111;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0),
+                radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+        }
+
+        /* Film Strip Sprocket Divider */
+        .film-strip-divider {
+            height: 22px;
+            background-color: #0a0a0a;
+            border-top: 2px solid #2a2a2a;
+            border-bottom: 2px solid #2a2a2a;
+            background-image: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 14px,
+                #262626 14px,
+                #262626 24px
+            );
+            background-size: 38px 10px;
+            background-position: center;
+            background-repeat: repeat-x;
+        }
+
+        /* Clapperboard Diagonal Stripe Accent */
+        .slate-stripes {
+            background: repeating-linear-gradient(
+                -45deg,
+                #1c1c1c,
+                #1c1c1c 12px,
+                #e5e5e5 12px,
+                #e5e5e5 24px
+            );
+        }
+
+        /* Distressed Card Border */
+        .grunge-card {
+            background-color: #0d0d0d;
+            border: 1px solid #2e2e2e;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.85), inset 0 0 24px rgba(0, 0, 0, 0.6);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .grunge-card:hover {
+            border-color: #6b6b6b;
+        }
+
+        /* Faded White Grungy Frame for Tagline Banners */
+        .grunge-faded-box {
+            position: relative;
+            background: rgba(14, 14, 14, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            box-shadow:
+                0 0 0 3px rgba(10, 10, 10, 0.9),
+                0 0 0 4px rgba(255, 255, 255, 0.11),
+                inset 0 0 18px rgba(0, 0, 0, 0.92),
+                0 12px 28px rgba(0, 0, 0, 0.85);
+            background-image:
+                radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 45%),
+                radial-gradient(circle at 88% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.015) 0px,
+                    rgba(255, 255, 255, 0.015) 1px,
+                    transparent 1px,
+                    transparent 3px
+                );
+        }
+
+        /* Circular Show Logo Badge */
+        .show-logo-circle {
+            width: 11rem;
+            height: 11rem;
+            border-radius: 9999px;
+            background-color: #050505;
+            border: 2px solid rgba(255, 255, 255, 0.28);
+            box-shadow:
+                0 0 0 4px rgba(10, 10, 10, 0.95),
+                0 0 0 5px rgba(255, 255, 255, 0.12),
+                0 16px 38px rgba(0, 0, 0, 0.92),
+                inset 0 0 24px rgba(0, 0, 0, 0.85);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+            .show-logo-circle {
+                width: 12.5rem;
+                height: 12.5rem;
+            }
+        }
+
+        /* 9:16 Vertical Instagram Reel Frame */
+        .reel-slot-frame {
+            aspect-ratio: 9 / 16;
+            background: radial-gradient(circle at 50% 30%, #1c1c1c 0%, #0b0b0b 75%, #070707 100%);
+            border: 1px dashed rgba(255, 255, 255, 0.22);
+            box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.9);
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .reel-slot-frame:hover {
+            border-color: rgba(255, 255, 255, 0.55);
+        }
+
+        /* Glowing Red Camera REC Dot Animation */
+        @keyframes recPulse {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 8px rgba(220, 38, 38, 0.95), 0 0 18px rgba(220, 38, 38, 0.55);
+            }
+            50% {
+                opacity: 0.45;
+                box-shadow: 0 0 3px rgba(220, 38, 38, 0.45);
+            }
+        }
+
+        .rec-dot-glow {
+            background-color: #dc2626;
+            animation: recPulse 1.6s ease-in-out infinite;
+        }
+
+        /* Sparkly Gold Shimmer Styling for Awards Navigation Tab */
+        @keyframes goldShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes sparkleTwinkle {
+            0%, 100% { opacity: 0.45; transform: scale(0.85) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(18deg); }
+        }
+
+        .sparkly-gold-tab {
+            background: linear-gradient(
+                115deg,
+                #b8860b 0%,
+                #ffd700 22%,
+                #fff3b0 38%,
+                #daa520 55%,
+                #ffe875 74%,
+                #b8860b 100%
+            );
+            background-size: 240% 240%;
+            animation: goldShimmer 3.2s ease-in-out infinite;
+            box-shadow:
+                0 0 14px rgba(255, 215, 0, 0.42),
+                0 0 28px rgba(218, 165, 32, 0.22),
+                inset 0 1px 1px rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 243, 176, 0.85);
+            color: #0a0a0a;
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .sparkly-gold-tab:hover {
+            transform: translateY(-1px);
+            box-shadow:
+                0 0 20px rgba(255, 215, 0, 0.72),
+                0 0 36px rgba(255, 232, 117, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.95);
+        }
+
+        .gold-sparkle-star {
+            animation: sparkleTwinkle 2s ease-in-out infinite;
+        }
+
+        .gold-sparkle-star-delayed {
+            animation: sparkleTwinkle 2.4s ease-in-out 0.9s infinite;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-chalk font-sans antialiased selection:bg-white selection:text-black">
+
+    <!-- Persistent Subtle Film Grain Overlay -->
+    <div class="film-grain" aria-hidden="true"></div>
+
+    <!-- Top Navigation Bar (Matches index.html exactly, with FAME Socials active) -->
+    <header class="sticky top-0 z-40 bg-obsidian/95 backdrop-blur-md border-b border-iron">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Left: FAME Logo Lockup -->
+                <a href="index.html" target="_self" class="flex items-center gap-3 group focus:outline-none">
+                    <img 
+                        src="FAME_white.png" 
+                        alt="FAME Logo" 
+                        class="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.18)]"
+                        onerror="this.style.display='none'; document.getElementById('nav-logo-fallback').classList.remove('hidden');"
+                    >
+                    <span id="nav-logo-fallback" class="hidden font-display text-2xl sm:text-3xl font-bold uppercase tracking-widest text-white">
+                        FAME
+                    </span>
+                    <span class="hidden sm:inline-block h-5 w-[1px] bg-iron"></span>
+                    <span class="hidden sm:inline-block font-mono text-[11px] uppercase tracking-widest text-silver group-hover:text-white transition-colors">
+                        Floyd County CCA
+                    </span>
+                </a>
+
+                <!-- Right: Desktop Navigation Links & Mobile Menu Button -->
+                <div class="flex items-center">
+                    <!-- Desktop Navigation Links -->
+                    <nav class="hidden md:flex items-center space-x-5 lg:space-x-7">
+                        <a href="index.html#about" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">The Pathway</a>
+                        <a href="index.html#teacher" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Meet The Teacher</a>
+                        <a href="social.html" target="_self" aria-current="page" class="font-display uppercase tracking-widest text-sm text-white border-b-2 border-white py-2">FAME Socials</a>
+                        <a href="index.html" target="_self" class="px-4 py-2 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver transition-colors">
+                            Watch Reel
+                        </a>
+                        <a 
+                            href="https://sites.google.com/floydboe.net/the-famecca-awards/full-page-embed" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            class="sparkly-gold-tab inline-flex items-center gap-1.5 px-4 py-2 rounded text-black font-display uppercase tracking-widest text-xs font-bold"
+                        >
+                            <svg class="w-3.5 h-3.5 text-black gold-sparkle-star" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <span>Awards</span>
+                            <svg class="w-2.5 h-2.5 text-black gold-sparkle-star-delayed" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M10 1l2.1 5.9L18 9l-5.9 2.1L10 17l-2.1-5.9L2 9l5.9-2.1L10 1z"></path>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Contact</a>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" type="button" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded border border-iron text-silver hover:text-white hover:border-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-charcoal border-b border-iron px-4 pt-2 pb-5 space-y-2">
+            <a href="index.html#about" target="_self" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-silver hover:text-white hover:bg-slateDark">The Pathway</a>
+            <a href="index.html#teacher" target="_self" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-silver hover:text-white hover:bg-slateDark">Meet The Teacher</a>
+            <a href="social.html" target="_self" aria-current="page" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-white bg-slateDark border-l-2 border-white">FAME Socials</a>
+            <a href="index.html" target="_self" class="mobile-nav-link block w-full text-center mt-2 px-4 py-3 rounded bg-white text-black font-display uppercase tracking-widest text-sm font-bold">
+                Watch Reel
+            </a>
+            <a 
+                href="https://sites.google.com/floydboe.net/the-famecca-awards/full-page-embed" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="mobile-nav-link sparkly-gold-tab w-full flex items-center justify-center gap-2 mt-2 px-4 py-3 rounded text-black font-display uppercase tracking-widest text-sm font-bold"
+            >
+                <svg class="w-4 h-4 text-black gold-sparkle-star" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <span>Awards</span>
+                <svg class="w-3 h-3 text-black gold-sparkle-star-delayed" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M10 1l2.1 5.9L18 9l-5.9 2.1L10 17l-2.1-5.9L2 9l5.9-2.1L10 1z"></path>
+                </svg>
+            </a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-silver hover:text-white hover:bg-slateDark">Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: FAME ON AIR + Glowing Red Camera REC Light -->
+    <section id="top" class="relative grunge-surface border-b border-iron overflow-hidden py-16 sm:py-24 px-4">
+        <div class="absolute inset-0 cinematic-vignette pointer-events-none"></div>
+
+        <!-- Subtle Decorative Viewfinder Corner Marks -->
+        <div class="hidden sm:block absolute top-8 left-8 w-10 h-10 border-t-2 border-l-2 border-ash/40 pointer-events-none"></div>
+        <div class="hidden sm:block absolute top-8 right-8 w-10 h-10 border-t-2 border-r-2 border-ash/40 pointer-events-none"></div>
+        <div class="hidden sm:block absolute bottom-8 left-8 w-10 h-10 border-b-2 border-l-2 border-ash/40 pointer-events-none"></div>
+        <div class="hidden sm:block absolute bottom-8 right-8 w-10 h-10 border-b-2 border-r-2 border-ash/40 pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+            <!-- Glowing Red Camera REC Status Pill -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-charcoal/95 border border-iron text-xs font-mono text-silver tracking-widest mb-6 shadow-[0_4px_20px_rgba(0,0,0,0.85)]">
+                <span class="rec-dot-glow inline-block w-2.5 h-2.5 rounded-full"></span>
+                <span class="text-white font-semibold">REC</span>
+                <span class="text-ash">&bull;</span>
+                <span>THE FAME PATHWAY</span>
+            </div>
+
+            <!-- Snappy Main Hero Heading -->
+            <h1 class="font-display text-5xl sm:text-7xl md:text-8xl font-bold uppercase tracking-wider text-white leading-none mb-5 drop-shadow-[0_6px_24px_rgba(0,0,0,0.9)]">
+                FAME ON AIR
+            </h1>
+
+            <!-- Grungy Faded-White Border Sub-Banner -->
+            <div class="grunge-faded-box rounded-md px-5 py-3 sm:px-8 sm:py-3.5 mb-8 max-w-2xl">
+                <p class="font-typewriter text-xs sm:text-sm md:text-base text-chalk/95 leading-relaxed tracking-wide">
+                    Original shows, district news, and student-produced content from Floyd County CCA.
+                </p>
+            </div>
+
+            <!-- Quick Jump & Official Instagram CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+                <a href="#shows" class="w-full sm:w-auto px-8 py-3.5 rounded bg-white text-black font-display uppercase tracking-widest text-sm font-bold hover:bg-silver transition-all shadow-lg">
+                    Explore The Shows
+                </a>
+                <a 
+                    href="https://www.instagram.com/fame_cca/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded bg-charcoal text-white border border-ash/60 font-display uppercase tracking-widest text-sm font-semibold hover:bg-slateDark hover:border-white transition-all"
+                >
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>@fame_cca</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Film Strip Divider -->
+    <div class="film-strip-divider" aria-hidden="true"></div>
+
+    <!-- EDITORIAL INTRO & ORIGINAL SHOWS SECTION -->
+    <section id="shows" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-charcoal relative">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Editorial Intro Banner: "More Than Just Social Media." -->
+            <div class="grunge-card rounded-xl bg-obsidian/95 p-7 sm:p-10 md:p-12 mb-16 relative overflow-hidden">
+                <div class="slate-stripes h-2 w-full absolute top-0 left-0 opacity-75"></div>
+                <div class="max-w-4xl mx-auto text-center">
+                    <span class="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-ash block mb-2">
+                        THE FAME PATHWAY // @fame_cca
+                    </span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white mb-5">
+                        More Than Just Social Media.
+                    </h2>
+                    <p class="font-typewriter text-sm sm:text-base md:text-lg text-chalk/90 leading-relaxed">
+                        At FAME, we don’t just create content. We tell stories, build connections, and give our school community a voice. Through original shows and student-produced media, our Instagram channel brings creativity, information, and entertainment together, all from the perspective of the next generation of storytellers.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section Header -->
+            <div class="mb-12 border-l-4 border-white pl-5">
+                <span class="font-mono text-xs sm:text-sm uppercase tracking-widest text-ash block mb-1">Original Lineup // Student Productions</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
+                    The Shows
+                </h2>
+            </div>
+
+            <!-- Stacked Show Cards (Consistent Structure: Logo + Title + Short Tagline + Description + 9:16 Instagram Reels Feed) -->
+            <div class="space-y-12">
+
+                <!-- =========================================================
+                     SHOW 1: FCS FLASH NEWS
+                ========================================================== -->
+                <article class="grunge-card rounded-xl bg-obsidian p-6 sm:p-9 lg:p-10 relative overflow-hidden">
+                    <div class="slate-stripes h-2 w-full absolute top-0 left-0 opacity-75"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center pt-2">
+                        <!-- Left: Circular Logo & Show Copy (7 cols) -->
+                        <div class="lg:col-span-7 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 text-center sm:text-left">
+                            <!-- Circular Show Logo Badge -->
+                            <div class="show-logo-circle p-4 shrink-0">
+                                <img 
+                                    src="FlashNewsLogo_Trans copy.png" 
+                                    alt="FCS Flash News Logo" 
+                                    class="w-full h-full object-contain"
+                                    onerror="this.style.display='none'; document.getElementById('flash-logo-fallback').classList.remove('hidden');"
+                                >
+                                <div id="flash-logo-fallback" class="hidden flex flex-col items-center justify-center p-3 text-center">
+                                    <span class="font-display text-2xl font-bold uppercase tracking-widest text-white leading-none">FCS</span>
+                                    <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-silver mt-1.5">FLASH NEWS</span>
+                                </div>
+                            </div>
+
+                            <!-- Title, Tagline & Description -->
+                            <div class="flex-1">
+                                <span class="inline-block px-3 py-1 rounded bg-slateDark border border-iron font-mono text-[11px] uppercase tracking-widest text-silver mb-3">
+                                    School News &amp; Updates
+                                </span>
+
+                                <h3 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white leading-tight mb-2">
+                                    FCS Flash News
+                                </h3>
+
+                                <p class="font-typewriter text-sm sm:text-base text-white/90 tracking-wide mb-4">
+                                    “Your schools. Your stories. Your news.”
+                                </p>
+
+                                <p class="text-chalk/85 text-sm sm:text-base leading-relaxed mb-6">
+                                    FCS Flash News is FAME’s fast-paced weekly news show bringing students, staff, and families the latest happenings across Floyd County Schools—dropping on Instagram every Friday. From school events and student achievements to important announcements and community highlights, Flash News keeps you connected to what’s happening throughout our district. Produced by FAME students, it’s local school news with a student perspective.
+                                </p>
+
+                                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                                    <a 
+                                        href="https://www.instagram.com/fame_cca/reels/" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver transition-colors"
+                                    >
+                                        <span>Watch Flash News Reels</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Instagram Reels Feed / Vertical Preview Strip (5 cols) -->
+                        <div class="lg:col-span-5">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <span class="font-mono text-[11px] uppercase tracking-widest text-ash">Flash News Samples // @fame_cca</span>
+                                <span class="font-mono text-[10px] uppercase tracking-widest text-silver">9:16 Feed</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3.5">
+                                <!-- Reel Slot 1: FN1.mp4 -->
+                                <div class="reel-slot-frame rounded-lg overflow-hidden flex flex-col justify-between relative group bg-black">
+                                    <!-- Top Overlay Badge & Expand Button -->
+                                    <div class="flex items-center justify-between p-2.5 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-10">
+                                        <span class="px-2 py-0.5 rounded bg-black/85 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">FRIDAY // EP. 01</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('FN1.mp4', 'FCS Flash News — Ep. 01')"
+                                            title="Expand in Screening Room"
+                                            aria-label="Expand FN1.mp4 in Screening Room"
+                                            class="p-1.5 rounded bg-black/80 border border-iron text-silver hover:text-white hover:border-white transition-colors"
+                                        >
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!-- Native HTML5 Video Player (FN1.mp4) -->
+                                    <video
+                                        id="video-fn1"
+                                        src="FN1.mp4"
+                                        controls
+                                        playsinline
+                                        preload="metadata"
+                                        class="w-full h-full object-cover flex-1 bg-black"
+                                        onerror="this.classList.add('hidden'); document.getElementById('fn1-fallback').classList.remove('hidden');"
+                                    ></video>
+
+                                    <!-- Graceful Preview Fallback if FN1.mp4 is not yet in directory -->
+                                    <div id="fn1-fallback" class="hidden my-auto p-3.5 flex flex-col items-center text-center">
+                                        <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 text-white flex items-center justify-center mb-2.5">
+                                            <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-display uppercase tracking-wider text-xs text-white block">FN1.mp4</span>
+                                        <span class="font-mono text-[10px] text-ash mt-1">Ready for GitHub Upload</span>
+                                    </div>
+
+                                    <!-- Bottom Caption Bar -->
+                                    <div class="px-2.5 py-2 bg-black/95 border-t border-iron/80 flex items-center justify-between gap-1">
+                                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver truncate">FN1.mp4</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('FN1.mp4', 'FCS Flash News — Ep. 01')"
+                                            class="font-mono text-[9px] uppercase tracking-wider text-white hover:underline shrink-0"
+                                        >
+                                            Expand
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Reel Slot 2: FN2.mp4 -->
+                                <div class="reel-slot-frame rounded-lg overflow-hidden flex flex-col justify-between relative group bg-black">
+                                    <!-- Top Overlay Badge & Expand Button -->
+                                    <div class="flex items-center justify-between p-2.5 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-10">
+                                        <span class="px-2 py-0.5 rounded bg-black/85 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">FRIDAY // EP. 02</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('FN2.mp4', 'FCS Flash News — Ep. 02')"
+                                            title="Expand in Screening Room"
+                                            aria-label="Expand FN2.mp4 in Screening Room"
+                                            class="p-1.5 rounded bg-black/80 border border-iron text-silver hover:text-white hover:border-white transition-colors"
+                                        >
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!-- Native HTML5 Video Player (FN2.mp4) -->
+                                    <video
+                                        id="video-fn2"
+                                        src="FN2.mp4"
+                                        controls
+                                        playsinline
+                                        preload="metadata"
+                                        class="w-full h-full object-cover flex-1 bg-black"
+                                        onerror="this.classList.add('hidden'); document.getElementById('fn2-fallback').classList.remove('hidden');"
+                                    ></video>
+
+                                    <!-- Graceful Preview Fallback if FN2.mp4 is not yet in directory -->
+                                    <div id="fn2-fallback" class="hidden my-auto p-3.5 flex flex-col items-center text-center">
+                                        <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 text-white flex items-center justify-center mb-2.5">
+                                            <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-display uppercase tracking-wider text-xs text-white block">FN2.mp4</span>
+                                        <span class="font-mono text-[10px] text-ash mt-1">Ready for GitHub Upload</span>
+                                    </div>
+
+                                    <!-- Bottom Caption Bar -->
+                                    <div class="px-2.5 py-2 bg-black/95 border-t border-iron/80 flex items-center justify-between gap-1">
+                                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver truncate">FN2.mp4</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('FN2.mp4', 'FCS Flash News — Ep. 02')"
+                                            class="font-mono text-[9px] uppercase tracking-wider text-white hover:underline shrink-0"
+                                        >
+                                            Expand
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =========================================================
+                     SHOW 2: THE TEACHER'S LOUNGE WITH MR. WILLIAMS
+                ========================================================== -->
+                <article class="grunge-card rounded-xl bg-obsidian p-6 sm:p-9 lg:p-10 relative overflow-hidden">
+                    <div class="slate-stripes h-2 w-full absolute top-0 left-0 opacity-75"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center pt-2">
+                        <!-- Left: Circular Logo & Show Copy (7 cols) -->
+                        <div class="lg:col-span-7 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 text-center sm:text-left">
+                            <!-- Circular Show Logo Badge -->
+                            <div class="show-logo-circle p-3 shrink-0">
+                                <img 
+                                    src="TheTeachersLounge.jpg" 
+                                    alt="The Teacher's Lounge with Mr. Williams Logo" 
+                                    class="w-full h-full object-contain rounded-full"
+                                    onerror="this.style.display='none'; document.getElementById('lounge-logo-fallback').classList.remove('hidden');"
+                                >
+                                <div id="lounge-logo-fallback" class="hidden flex flex-col items-center justify-center p-3 text-center">
+                                    <span class="font-display text-lg font-bold uppercase tracking-wider text-white leading-tight">The Teacher’s Lounge</span>
+                                    <span class="font-mono text-[10px] uppercase tracking-widest text-silver mt-1.5">with Mr. Williams</span>
+                                </div>
+                            </div>
+
+                            <!-- Title, Tagline & Description -->
+                            <div class="flex-1">
+                                <span class="inline-block px-3 py-1 rounded bg-slateDark border border-iron font-mono text-[11px] uppercase tracking-widest text-silver mb-3">
+                                    Conversations &amp; Professional Learning
+                                </span>
+
+                                <h3 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white leading-tight mb-2">
+                                    The Teacher’s Lounge with <span class="whitespace-nowrap">Mr.&nbsp;Williams</span>
+                                </h3>
+
+                                <p class="font-typewriter text-sm sm:text-base text-white/90 tracking-wide mb-4">
+                                    “Professional development in disguise.”
+                                </p>
+
+                                <p class="text-chalk/85 text-sm sm:text-base leading-relaxed mb-6">
+                                    Pull up a chair and join <span class="whitespace-nowrap">Mr.&nbsp;Williams</span> in The Teacher’s Lounge, where the everyday realities of teaching meet practical advice, fresh perspectives, and a healthy dose of humor. From classroom management and motivating students before a long vacation break to surviving a surprise sunrise administrative observation, <span class="whitespace-nowrap">Mr.&nbsp;Williams</span> tackles the situations educators know all too well. Each episode blends proven classroom strategies, relatable experiences, and a little comedy to offer ideas you can actually use. Because sometimes the best professional development doesn’t feel like professional development at all.
+                                </p>
+
+                                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                                    <a 
+                                        href="https://www.instagram.com/fame_cca/reels/" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver transition-colors"
+                                    >
+                                        <span>Watch Lounge Reels</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Instagram Reels Feed / Vertical Preview Strip (5 cols) -->
+                        <div class="lg:col-span-5">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <span class="font-mono text-[11px] uppercase tracking-widest text-ash">Lounge Samples // @fame_cca</span>
+                                <span class="font-mono text-[10px] uppercase tracking-widest text-silver">9:16 Feed</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3.5">
+                                <!-- Reel Slot 1: TTL1.mp4 -->
+                                <div class="reel-slot-frame rounded-lg overflow-hidden flex flex-col justify-between relative group bg-black">
+                                    <!-- Top Overlay Badge & Expand Button -->
+                                    <div class="flex items-center justify-between p-2.5 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-10">
+                                        <span class="px-2 py-0.5 rounded bg-black/85 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">LOUNGE // EP. 01</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('TTL1.mp4', 'The Teacher’s Lounge — Ep. 01')"
+                                            title="Expand in Screening Room"
+                                            aria-label="Expand TTL1.mp4 in Screening Room"
+                                            class="p-1.5 rounded bg-black/80 border border-iron text-silver hover:text-white hover:border-white transition-colors"
+                                        >
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!-- Native HTML5 Video Player (TTL1.mp4) -->
+                                    <video
+                                        id="video-ttl1"
+                                        src="TTL1.mp4"
+                                        controls
+                                        playsinline
+                                        preload="metadata"
+                                        class="w-full h-full object-cover flex-1 bg-black"
+                                        onerror="this.classList.add('hidden'); document.getElementById('ttl1-fallback').classList.remove('hidden');"
+                                    ></video>
+
+                                    <!-- Graceful Preview Fallback if TTL1.mp4 is not yet in directory -->
+                                    <div id="ttl1-fallback" class="hidden my-auto p-3.5 flex flex-col items-center text-center">
+                                        <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 text-white flex items-center justify-center mb-2.5">
+                                            <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-display uppercase tracking-wider text-xs text-white block">TTL1.mp4</span>
+                                        <span class="font-mono text-[10px] text-ash mt-1">Ready for GitHub Upload</span>
+                                    </div>
+
+                                    <!-- Bottom Caption Bar -->
+                                    <div class="px-2.5 py-2 bg-black/95 border-t border-iron/80 flex items-center justify-between gap-1">
+                                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver truncate">TTL1.mp4</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('TTL1.mp4', 'The Teacher’s Lounge — Ep. 01')"
+                                            class="font-mono text-[9px] uppercase tracking-wider text-white hover:underline shrink-0"
+                                        >
+                                            Expand
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Reel Slot 2: TTL2.mp4 -->
+                                <div class="reel-slot-frame rounded-lg overflow-hidden flex flex-col justify-between relative group bg-black">
+                                    <!-- Top Overlay Badge & Expand Button -->
+                                    <div class="flex items-center justify-between p-2.5 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-10">
+                                        <span class="px-2 py-0.5 rounded bg-black/85 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">LOUNGE // EP. 02</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('TTL2.mp4', 'The Teacher’s Lounge — Ep. 02')"
+                                            title="Expand in Screening Room"
+                                            aria-label="Expand TTL2.mp4 in Screening Room"
+                                            class="p-1.5 rounded bg-black/80 border border-iron text-silver hover:text-white hover:border-white transition-colors"
+                                        >
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!-- Native HTML5 Video Player (TTL2.mp4) -->
+                                    <video
+                                        id="video-ttl2"
+                                        src="TTL2.mp4"
+                                        controls
+                                        playsinline
+                                        preload="metadata"
+                                        class="w-full h-full object-cover flex-1 bg-black"
+                                        onerror="this.classList.add('hidden'); document.getElementById('ttl2-fallback').classList.remove('hidden');"
+                                    ></video>
+
+                                    <!-- Graceful Preview Fallback if TTL2.mp4 is not yet in directory -->
+                                    <div id="ttl2-fallback" class="hidden my-auto p-3.5 flex flex-col items-center text-center">
+                                        <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 text-white flex items-center justify-center mb-2.5">
+                                            <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-display uppercase tracking-wider text-xs text-white block">TTL2.mp4</span>
+                                        <span class="font-mono text-[10px] text-ash mt-1">Ready for GitHub Upload</span>
+                                    </div>
+
+                                    <!-- Bottom Caption Bar -->
+                                    <div class="px-2.5 py-2 bg-black/95 border-t border-iron/80 flex items-center justify-between gap-1">
+                                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver truncate">TTL2.mp4</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('TTL2.mp4', 'The Teacher’s Lounge — Ep. 02')"
+                                            class="font-mono text-[9px] uppercase tracking-wider text-white hover:underline shrink-0"
+                                        >
+                                            Expand
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =========================================================
+                     SHOW 3: FAME IN THE SPOTLIGHT
+                ========================================================== -->
+                <article class="grunge-card rounded-xl bg-obsidian p-6 sm:p-9 lg:p-10 relative overflow-hidden">
+                    <div class="slate-stripes h-2 w-full absolute top-0 left-0 opacity-75"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center pt-2">
+                        <!-- Left: Circular Logo & Show Copy (7 cols) -->
+                        <div class="lg:col-span-7 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 text-center sm:text-left">
+                            <!-- Circular Show Logo Badge -->
+                            <div class="show-logo-circle p-5 shrink-0">
+                                <img 
+                                    src="FAMEinTheSpotlight.png" 
+                                    alt="FAME in the Spotlight Logo" 
+                                    class="w-full h-full object-contain"
+                                    onerror="this.style.display='none'; document.getElementById('spotlight-logo-fallback').classList.remove('hidden');"
+                                >
+                                <div id="spotlight-logo-fallback" class="hidden flex flex-col items-center justify-center p-3 text-center">
+                                    <svg class="w-9 h-9 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                    </svg>
+                                    <span class="font-display text-base font-bold uppercase tracking-wider text-white leading-tight">FAME In The</span>
+                                    <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-silver mt-1">SPOTLIGHT</span>
+                                </div>
+                            </div>
+
+                            <!-- Title, Tagline & Description -->
+                            <div class="flex-1">
+                                <span class="inline-block px-3 py-1 rounded bg-slateDark border border-iron font-mono text-[11px] uppercase tracking-widest text-silver mb-3">
+                                    People &amp; Stories
+                                </span>
+
+                                <h3 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white leading-tight mb-2">
+                                    FAME in the Spotlight
+                                </h3>
+
+                                <p class="font-typewriter text-sm sm:text-base text-white/90 tracking-wide mb-4">
+                                    “One Minute. One Story.”
+                                </p>
+
+                                <p class="text-chalk/85 text-sm sm:text-base leading-relaxed mb-6">
+                                    Every educator has a story worth sharing. FAME in the Spotlight shines a light on the incredible teachers and staff who make Floyd County Schools special. In quick, one-minute features, we go beyond the classroom to highlight the personalities, passions, talents, and stories of the people who make a difference in our schools every day. It’s our way of celebrating the people behind the impact.
+                                </p>
+
+                                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                                    <a 
+                                        href="https://www.instagram.com/fame_cca/reels/" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver transition-colors"
+                                    >
+                                        <span>Watch Spotlight Reels</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Instagram Reels Feed / Vertical Preview Strip (5 cols) -->
+                        <div class="lg:col-span-5">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <span class="font-mono text-[11px] uppercase tracking-widest text-ash">Spotlight Samples // @fame_cca</span>
+                                <span class="font-mono text-[10px] uppercase tracking-widest text-silver">9:16 Feed</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3.5">
+                                <!-- Reel Slot 1: FITS1.mp4 -->
+                                <div class="reel-slot-frame rounded-lg overflow-hidden flex flex-col justify-between relative group bg-black">
+                                    <!-- Top Overlay Badge & Expand Button -->
+                                    <div class="flex items-center justify-between p-2.5 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-10">
+                                        <span class="px-2 py-0.5 rounded bg-black/85 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">SPOTLIGHT // 01</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('FITS1.mp4', 'FAME in the Spotlight — Feature 01')"
+                                            title="Expand in Screening Room"
+                                            aria-label="Expand FITS1.mp4 in Screening Room"
+                                            class="p-1.5 rounded bg-black/80 border border-iron text-silver hover:text-white hover:border-white transition-colors"
+                                        >
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!-- Native HTML5 Video Player (FITS1.mp4) -->
+                                    <video
+                                        id="video-fits1"
+                                        src="FITS1.mp4"
+                                        controls
+                                        playsinline
+                                        preload="metadata"
+                                        class="w-full h-full object-cover flex-1 bg-black"
+                                        onerror="this.classList.add('hidden'); document.getElementById('fits1-fallback').classList.remove('hidden');"
+                                    ></video>
+
+                                    <!-- Graceful Preview Fallback if FITS1.mp4 is not yet in directory -->
+                                    <div id="fits1-fallback" class="hidden my-auto p-3.5 flex flex-col items-center text-center">
+                                        <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 text-white flex items-center justify-center mb-2.5">
+                                            <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-display uppercase tracking-wider text-xs text-white block">FITS1.mp4</span>
+                                        <span class="font-mono text-[10px] text-ash mt-1">Ready for GitHub Upload</span>
+                                    </div>
+
+                                    <!-- Bottom Caption Bar -->
+                                    <div class="px-2.5 py-2 bg-black/95 border-t border-iron/80 flex items-center justify-between gap-1">
+                                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver truncate">FITS1.mp4</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('FITS1.mp4', 'FAME in the Spotlight — Feature 01')"
+                                            class="font-mono text-[9px] uppercase tracking-wider text-white hover:underline shrink-0"
+                                        >
+                                            Expand
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Reel Slot 2: FITS2.mp4 -->
+                                <div class="reel-slot-frame rounded-lg overflow-hidden flex flex-col justify-between relative group bg-black">
+                                    <!-- Top Overlay Badge & Expand Button -->
+                                    <div class="flex items-center justify-between p-2.5 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-10">
+                                        <span class="px-2 py-0.5 rounded bg-black/85 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">SPOTLIGHT // 02</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('FITS2.mp4', 'FAME in the Spotlight — Feature 02')"
+                                            title="Expand in Screening Room"
+                                            aria-label="Expand FITS2.mp4 in Screening Room"
+                                            class="p-1.5 rounded bg-black/80 border border-iron text-silver hover:text-white hover:border-white transition-colors"
+                                        >
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!-- Native HTML5 Video Player (FITS2.mp4) -->
+                                    <video
+                                        id="video-fits2"
+                                        src="FITS2.mp4"
+                                        controls
+                                        playsinline
+                                        preload="metadata"
+                                        class="w-full h-full object-cover flex-1 bg-black"
+                                        onerror="this.classList.add('hidden'); document.getElementById('fits2-fallback').classList.remove('hidden');"
+                                    ></video>
+
+                                    <!-- Graceful Preview Fallback if FITS2.mp4 is not yet in directory -->
+                                    <div id="fits2-fallback" class="hidden my-auto p-3.5 flex flex-col items-center text-center">
+                                        <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 text-white flex items-center justify-center mb-2.5">
+                                            <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-display uppercase tracking-wider text-xs text-white block">FITS2.mp4</span>
+                                        <span class="font-mono text-[10px] text-ash mt-1">Ready for GitHub Upload</span>
+                                    </div>
+
+                                    <!-- Bottom Caption Bar -->
+                                    <div class="px-2.5 py-2 bg-black/95 border-t border-iron/80 flex items-center justify-between gap-1">
+                                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver truncate">FITS2.mp4</span>
+                                        <button
+                                            type="button"
+                                            onclick="openScreeningRoom('FITS2.mp4', 'FAME in the Spotlight — Feature 02')"
+                                            class="font-mono text-[9px] uppercase tracking-wider text-white hover:underline shrink-0"
+                                        >
+                                            Expand
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Film Strip Divider -->
+    <div class="film-strip-divider" aria-hidden="true"></div>
+
+    <!-- GENERAL CONTENT & EVERYDAY PRODUCTIONS SECTION -->
+    <section id="general-content" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-obsidian relative border-b border-iron">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-l-4 border-white pl-5">
+                <div>
+                    <span class="font-mono text-xs sm:text-sm uppercase tracking-widest text-ash block mb-1">Beyond The Series // Daily Creative Output</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white">
+                        General Content &amp; Everyday Productions
+                    </h2>
+                </div>
+                <p class="font-typewriter text-xs sm:text-sm text-silver max-w-md">
+                    From high-energy campus hype edits to behind-the-scenes studio moments, our crews keep the feed rolling all week long.
+                </p>
+            </div>
+
+            <!-- 4-Card Noir Grid for Everyday Content -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Card 1: Campus Event Coverage & Hype Reels -->
+                <div class="grunge-card rounded-xl bg-charcoal p-6 flex flex-col justify-between relative overflow-hidden">
+                    <div class="slate-stripes h-1.5 w-full absolute top-0 left-0 opacity-70"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pt-1">
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-ash">REEL TYPE // 01</span>
+                            <div class="w-9 h-9 rounded-full bg-obsidian border border-iron flex items-center justify-center text-white">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white mb-2">
+                            Campus Events &amp; Hype Reels
+                        </h3>
+                        <p class="text-chalk/80 text-sm leading-relaxed">
+                            Fast-cut recaps, pep rallies, pathway showcases, and student life moments captured on location across Floyd County Schools.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-iron/80">
+                        <span class="font-mono text-[10px] uppercase tracking-widest text-silver">On-Location Cinematography</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Behind-the-Scenes Studio & Production Clips -->
+                <div class="grunge-card rounded-xl bg-charcoal p-6 flex flex-col justify-between relative overflow-hidden">
+                    <div class="slate-stripes h-1.5 w-full absolute top-0 left-0 opacity-70"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pt-1">
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-ash">REEL TYPE // 02</span>
+                            <div class="w-9 h-9 rounded-full bg-obsidian border border-iron flex items-center justify-center text-white">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white mb-2">
+                            Behind-The-Scenes &amp; Studio Life
+                        </h3>
+                        <p class="text-chalk/80 text-sm leading-relaxed">
+                            Bloopers, lighting setups, camera tests, and unscripted moments from inside the FAME studio and editing bays.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-iron/80">
+                        <span class="font-mono text-[10px] uppercase tracking-widest text-silver">Crew &amp; Set Life</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: School & Community Promos / PSAs -->
+                <div class="grunge-card rounded-xl bg-charcoal p-6 flex flex-col justify-between relative overflow-hidden">
+                    <div class="slate-stripes h-1.5 w-full absolute top-0 left-0 opacity-70"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pt-1">
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-ash">REEL TYPE // 03</span>
+                            <div class="w-9 h-9 rounded-full bg-obsidian border border-iron flex items-center justify-center text-white">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white mb-2">
+                            District Promos &amp; PSAs
+                        </h3>
+                        <p class="text-chalk/80 text-sm leading-relaxed">
+                            Custom promotional videos, program spotlights, and public service announcements created for CCA pathways and community partners.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-iron/80">
+                        <span class="font-mono text-[10px] uppercase tracking-widest text-silver">Client &amp; Pathway Media</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Trending Challenges & Student Shorts -->
+                <div class="grunge-card rounded-xl bg-charcoal p-6 flex flex-col justify-between relative overflow-hidden">
+                    <div class="slate-stripes h-1.5 w-full absolute top-0 left-0 opacity-70"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pt-1">
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-ash">REEL TYPE // 04</span>
+                            <div class="w-9 h-9 rounded-full bg-obsidian border border-iron flex items-center justify-center text-white">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white mb-2">
+                            Trends, Skits &amp; Micro-Shorts
+                        </h3>
+                        <p class="text-chalk/80 text-sm leading-relaxed">
+                            Creative transitions, sound-design experiments, and student-pitched comedy skits built specifically for vertical feeds.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-iron/80">
+                        <span class="font-mono text-[10px] uppercase tracking-widest text-silver">Creative Lab</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9:16 Everyday Reels Showcase Strip -->
+            <div class="grunge-card rounded-xl bg-charcoal/80 p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <span class="font-mono text-[11px] uppercase tracking-widest text-ash block">Featured Drops // @fame_cca</span>
+                        <h3 class="font-display text-2xl font-bold uppercase tracking-wide text-white">
+                            Recent Everyday Reels
+                        </h3>
+                    </div>
+                    <a 
+                        href="https://www.instagram.com/fame_cca/reels/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver transition-colors self-start sm:self-auto"
+                    >
+                        <span>Browse Full Reels Feed</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Everyday Reel Slot 1 -->
+                    <a 
+                        href="https://www.instagram.com/fame_cca/reels/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="reel-slot-frame rounded-lg p-3.5 flex flex-col justify-between group"
+                    >
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 rounded bg-black/80 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">DROP 01</span>
+                            <span class="w-2 h-2 rounded-full bg-white/60 group-hover:bg-white"></span>
+                        </div>
+                        <div class="my-auto flex flex-col items-center text-center">
+                            <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 group-hover:bg-white group-hover:text-black text-white flex items-center justify-center transition-colors mb-2.5">
+                                <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </div>
+                            <span class="font-display uppercase tracking-wider text-xs text-white block">Campus Event Recap</span>
+                            <span class="font-mono text-[10px] text-ash mt-1">Watch on Instagram</span>
+                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver/70 text-center border-t border-iron/70 pt-2">
+                            @fame_cca
+                        </span>
+                    </a>
+
+                    <!-- Everyday Reel Slot 2 -->
+                    <a 
+                        href="https://www.instagram.com/fame_cca/reels/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="reel-slot-frame rounded-lg p-3.5 flex flex-col justify-between group"
+                    >
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 rounded bg-black/80 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">DROP 02</span>
+                            <span class="w-2 h-2 rounded-full bg-white/60 group-hover:bg-white"></span>
+                        </div>
+                        <div class="my-auto flex flex-col items-center text-center">
+                            <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 group-hover:bg-white group-hover:text-black text-white flex items-center justify-center transition-colors mb-2.5">
+                                <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </div>
+                            <span class="font-display uppercase tracking-wider text-xs text-white block">Behind The Scenes</span>
+                            <span class="font-mono text-[10px] text-ash mt-1">Watch on Instagram</span>
+                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver/70 text-center border-t border-iron/70 pt-2">
+                            @fame_cca
+                        </span>
+                    </a>
+
+                    <!-- Everyday Reel Slot 3 -->
+                    <a 
+                        href="https://www.instagram.com/fame_cca/reels/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="reel-slot-frame rounded-lg p-3.5 flex flex-col justify-between group"
+                    >
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 rounded bg-black/80 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">DROP 03</span>
+                            <span class="w-2 h-2 rounded-full bg-white/60 group-hover:bg-white"></span>
+                        </div>
+                        <div class="my-auto flex flex-col items-center text-center">
+                            <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 group-hover:bg-white group-hover:text-black text-white flex items-center justify-center transition-colors mb-2.5">
+                                <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </div>
+                            <span class="font-display uppercase tracking-wider text-xs text-white block">CCA Pathway Promo</span>
+                            <span class="font-mono text-[10px] text-ash mt-1">Watch on Instagram</span>
+                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver/70 text-center border-t border-iron/70 pt-2">
+                            @fame_cca
+                        </span>
+                    </a>
+
+                    <!-- Everyday Reel Slot 4 -->
+                    <a 
+                        href="https://www.instagram.com/fame_cca/reels/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="reel-slot-frame rounded-lg p-3.5 flex flex-col justify-between group"
+                    >
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 rounded bg-black/80 border border-iron font-mono text-[9px] uppercase tracking-widest text-silver">DROP 04</span>
+                            <span class="w-2 h-2 rounded-full bg-white/60 group-hover:bg-white"></span>
+                        </div>
+                        <div class="my-auto flex flex-col items-center text-center">
+                            <div class="w-11 h-11 rounded-full bg-white/10 border border-white/30 group-hover:bg-white group-hover:text-black text-white flex items-center justify-center transition-colors mb-2.5">
+                                <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </div>
+                            <span class="font-display uppercase tracking-wider text-xs text-white block">Student Creative Short</span>
+                            <span class="font-mono text-[10px] text-ash mt-1">Watch on Instagram</span>
+                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-silver/70 text-center border-t border-iron/70 pt-2">
+                            @fame_cca
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Film Strip Divider -->
+    <div class="film-strip-divider" aria-hidden="true"></div>
+
+    <!-- OFFICIAL FAME CHANNELS (YouTube & Instagram Only) -->
+    <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 grunge-surface relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grunge-card rounded-xl bg-obsidian/95 p-6 sm:p-10 md:p-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-iron pb-6">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-widest text-ash block mb-1">Subscribe &amp; Follow // Direct Feeds</span>
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white">
+                            Official FAME Channels
+                        </h2>
+                    </div>
+                    <p class="font-typewriter text-xs sm:text-sm text-silver max-w-md">
+                        Catch full episodes, vertical reels, and behind-the-scenes production stills across our official student-managed platforms.
+                    </p>
+                </div>
+
+                <!-- 2 Monochrome Channel Cards (YouTube & Instagram) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- YouTube -->
+                    <a 
+                        href="https://www.youtube.com/@famepathwayatthefcscca4336" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="group flex flex-col justify-between p-6 sm:p-7 rounded-xl bg-charcoal border border-iron hover:bg-white hover:border-white transition-all"
+                    >
+                        <div class="flex items-start justify-between gap-4 mb-5">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-full bg-obsidian text-white group-hover:bg-black group-hover:text-white flex items-center justify-center border border-iron shrink-0">
+                                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="font-display uppercase tracking-wider text-white group-hover:text-black block text-2xl font-bold">YouTube</span>
+                                    <span class="font-mono text-xs text-ash group-hover:text-black/75">FAME Pathway @ FCS CCA</span>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-obsidian text-silver group-hover:bg-black group-hover:text-white font-mono text-[10px] uppercase tracking-widest border border-iron">
+                                Full Episodes
+                            </span>
+                        </div>
+                        <p class="font-typewriter text-xs sm:text-sm text-silver group-hover:text-black/80 leading-relaxed mb-6">
+                            Subscribe for full-length student films, broadcast episodes, event recaps, and festival submissions.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-iron/80 group-hover:border-black/15">
+                            <span class="font-display uppercase tracking-widest text-xs font-bold text-white group-hover:text-black">
+                                Visit YouTube Channel
+                            </span>
+                            <svg class="w-4 h-4 text-silver group-hover:text-black transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a 
+                        href="https://www.instagram.com/fame_cca/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="group flex flex-col justify-between p-6 sm:p-7 rounded-xl bg-charcoal border border-iron hover:bg-white hover:border-white transition-all"
+                    >
+                        <div class="flex items-start justify-between gap-4 mb-5">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-full bg-obsidian text-white group-hover:bg-black group-hover:text-white flex items-center justify-center border border-iron shrink-0">
+                                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="font-display uppercase tracking-wider text-white group-hover:text-black block text-2xl font-bold">Instagram</span>
+                                    <span class="font-mono text-xs text-ash group-hover:text-black/75">@fame_cca</span>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-obsidian text-silver group-hover:bg-black group-hover:text-white font-mono text-[10px] uppercase tracking-widest border border-iron">
+                                Reels &amp; Stills
+                            </span>
+                        </div>
+                        <p class="font-typewriter text-xs sm:text-sm text-silver group-hover:text-black/80 leading-relaxed mb-6">
+                            Follow daily student-produced Reels, FCS Flash News drops, The Teacher’s Lounge clips, and FAME in the Spotlight features.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-iron/80 group-hover:border-black/15">
+                            <span class="font-display uppercase tracking-widest text-xs font-bold text-white group-hover:text-black">
+                                Follow @fame_cca
+                            </span>
+                            <svg class="w-4 h-4 text-silver group-hover:text-black transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER: Contact & Social Links (Consistent with index.html) -->
+    <footer id="contact" class="bg-obsidian border-t-2 border-iron relative">
+        <div class="slate-stripes h-3 w-full opacity-75"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+                <!-- Brand & Contact Callout (7 cols) -->
+                <div class="md:col-span-7 space-y-6">
+                    <div class="flex flex-wrap items-center gap-4 sm:gap-5">
+                        <div class="p-2.5 rounded-lg bg-charcoal border border-iron flex items-center justify-center">
+                            <img 
+                                src="FAME_white.png" 
+                                alt="FAME Logo" 
+                                class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_2px_12px_rgba(255,255,255,0.18)]" 
+                                onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').classList.remove('hidden');"
+                            >
+                            <span id="footer-logo-fallback" class="hidden px-2 py-1 font-display text-2xl font-bold uppercase tracking-widest text-white">
+                                FAME
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold uppercase tracking-wider text-white">Connect With Us</h3>
+                            <p class="font-mono text-xs text-ash mt-0.5">Floyd County College &amp; Career Academy</p>
+                        </div>
+                    </div>
+
+                    <p class="text-chalk text-base sm:text-lg leading-relaxed max-w-xl">
+                        Any questions about FAME, please contact Mr. Williams on <strong class="text-white font-semibold">ParentSquare</strong> or through <strong class="text-white font-semibold">Email</strong>.
+                    </p>
+
+                    <!-- Email Action Bar -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+                        <a 
+                            href="mailto:rickwilliams@floydboe.net" 
+                            class="inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-lg bg-white text-black font-display uppercase tracking-wider text-sm font-bold hover:bg-silver transition-colors"
+                        >
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>rickwilliams@floydboe.net</span>
+                        </a>
+
+                        <button 
+                            id="copy-email-btn" 
+                            type="button" 
+                            class="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-charcoal text-silver border border-iron hover:text-white hover:border-white font-mono text-xs uppercase tracking-wider transition-colors"
+                        >
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            <span id="copy-email-text">Copy Email</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Return to Homepage Callout (5 cols) -->
+                <div class="md:col-span-5 md:pl-8 md:border-l border-iron space-y-5">
+                    <h4 class="font-display text-lg uppercase tracking-widest text-white">Explore The Pathway</h4>
+                    <p class="text-sm text-silver">
+                        Learn more about FAME coursework, filmmaking pillars, and instructor Rick Williams on the main pathway page.
+                    </p>
+                    <a 
+                        href="index.html" 
+                        target="_self" 
+                        class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-6 py-3.5 rounded-lg bg-charcoal text-white border border-iron hover:bg-white hover:text-black hover:border-white font-display uppercase tracking-widest text-xs font-bold transition-all"
+                    >
+                        <span>&larr; Back to FAME Home</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="mt-14 pt-8 border-t border-iron flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-ash">
+                <p>&copy; <span id="current-year"></span> FAME Pathway — Floyd County College &amp; Career Academy. All Rights Reserved.</p>
+                <p>Film • Arts • Media • Entertainment</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCREENING ROOM LIGHTBOX MODAL (For Expanding FN1.mp4 & FN2.mp4) -->
+    <div id="screening-room-modal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="screening-room-title">
+        <div class="grunge-card rounded-xl bg-obsidian w-full max-w-md overflow-hidden relative shadow-2xl">
+            <div class="slate-stripes h-2 w-full opacity-80"></div>
+            <div class="flex items-center justify-between px-4 py-3 border-b border-iron">
+                <div>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-ash block">Screening Room // 9:16</span>
+                    <h4 id="screening-room-title" class="font-display text-base uppercase tracking-wider text-white">FCS Flash News</h4>
+                </div>
+                <button
+                    id="close-screening-room-btn"
+                    type="button"
+                    aria-label="Close Screening Room"
+                    class="p-2 rounded border border-iron text-silver hover:text-white hover:border-white transition-colors"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="bg-black flex items-center justify-center aspect-[9/16] max-h-[72vh] mx-auto">
+                <video
+                    id="screening-room-video"
+                    controls
+                    playsinline
+                    class="w-full h-full object-contain bg-black"
+                ></video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function openScreeningRoom(src, title) {
+            const modal = document.getElementById('screening-room-modal');
+            const video = document.getElementById('screening-room-video');
+            const titleEl = document.getElementById('screening-room-title');
+            if (!modal || !video) return;
+
+            // Pause inline players before opening modal
+            ['video-fn1', 'video-fn2', 'video-ttl1', 'video-ttl2', 'video-fits1', 'video-fits2'].forEach(id => {
+                const inlineVid = document.getElementById(id);
+                if (inlineVid && !inlineVid.paused) {
+                    inlineVid.pause();
+                }
+            });
+
+            if (titleEl) titleEl.textContent = title || 'FAME On Air';
+            video.src = src;
+            modal.classList.remove('hidden');
+            video.play().catch(() => {});
+        }
+
+        function closeScreeningRoom() {
+            const modal = document.getElementById('screening-room-modal');
+            const video = document.getElementById('screening-room-video');
+            if (!modal || !video) return;
+
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
+            modal.classList.add('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+
+            // Screening Room Modal Close Listeners
+            const closeModalBtn = document.getElementById('close-screening-room-btn');
+            const modalBackdrop = document.getElementById('screening-room-modal');
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', closeScreeningRoom);
+            }
+            if (modalBackdrop) {
+                modalBackdrop.addEventListener('click', (e) => {
+                    if (e.target === modalBackdrop) {
+                        closeScreeningRoom();
+                    }
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeScreeningRoom();
+                }
+            });
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    mobileMenu.classList.toggle('hidden');
+                    if (iconOpen) iconOpen.classList.toggle('hidden', isHidden);
+                    if (iconClose) iconClose.classList.toggle('hidden', !isHidden);
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        if (iconOpen) iconOpen.classList.remove('hidden');
+                        if (iconClose) iconClose.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Copy Email Helper (Using execCommand fallback for iframe safety)
+            const copyBtn = document.getElementById('copy-email-btn');
+            const copyText = document.getElementById('copy-email-text');
+            if (copyBtn && copyText) {
+                copyBtn.addEventListener('click', () => {
+                    const email = 'rickwilliams@floydboe.net';
+                    const tempInput = document.createElement('textarea');
+                    tempInput.value = email;
+                    tempInput.style.position = 'fixed';
+                    tempInput.style.opacity = '0';
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    try {
+                        document.execCommand('copy');
+                        copyText.textContent = 'Copied!';
+                        copyBtn.classList.add('border-white', 'text-white');
+                        setTimeout(() => {
+                            copyText.textContent = 'Copy Email';
+                            copyBtn.classList.remove('border-white', 'text-white');
+                        }, 2200);
+                    } catch (err) {
+                        copyText.textContent = 'rickwilliams@floydboe.net';
+                    }
+                    document.body.removeChild(tempInput);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
