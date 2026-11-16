@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAME Sponsorships | Film, Arts, Media &amp; Entertainment — Floyd County CCA</title>
+  <meta name="description" content="Partner with the FAME Pathway at Floyd County College &amp; Career Academy. Explore sponsorship tiers, benefits, and current community partners." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Special Elite (typewriter), JetBrains Mono (slate/timecode), Inter, plus Sans Culottes CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/sans-culottes" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Tailwind Config matching FAME Website Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0a0a0a',
+            charcoal: '#121212',
+            slateDark: '#1c1c1c',
+            iron: '#2a2a2a',
+            ash: '#888888',
+            silver: '#b5b5b5',
+            chalk: '#f2f2f2',
+          },
+          fontFamily: {
+            display: ['"Sans Culottes"', '"Special Elite"', 'Impact', 'sans-serif'],
+            culottes: ['"Sans Culottes"', '"Special Elite"', 'Impact', 'sans-serif'],
+            typewriter: ['"Special Elite"', 'monospace'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Font-Face for Sans Culottes if hosted locally */
+    @font-face {
+      font-family: 'Sans Culottes';
+      src: local('Sans Culottes'), url('SansCulottes.woff2') format('woff2'), url('SansCulottes.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Core Theme Fallbacks ensuring instant dark cinema rendering */
+    html, body {
+      background-color: #0a0a0a;
+      color: #f2f2f2;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .font-display, .font-culottes {
+      font-family: 'Sans Culottes', 'Special Elite', Impact, sans-serif;
+    }
+    .font-typewriter {
+      font-family: 'Special Elite', monospace;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Subtle Film Grain Overlay */
+    .film-grain {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Film Strip Perforation Divider */
+    .film-strip-divider {
+      height: 22px;
+      background-color: #0a0a0a;
+      border-top: 2px solid #262626;
+      border-bottom: 2px solid #262626;
+      background-image: repeating-linear-gradient(
+        to right,
+        transparent 0px,
+        transparent 14px,
+        #222222 14px,
+        #222222 26px
+      );
+      background-size: 40px 10px;
+      background-repeat: repeat-x;
+      background-position: center;
+    }
+
+    /* Clapperboard Diagonal Slate Stripes */
+    .slate-stripes {
+      height: 12px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #e5e5e5,
+        #e5e5e5 14px,
+        #121212 14px,
+        #121212 28px
+      );
+    }
+
+    /* Distressed / Grungy Card Border */
+    .grunge-card {
+      background: linear-gradient(145deg, #161616 0%, #0e0e0e 100%);
+      border: 1px solid #2a2a2a;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .grunge-card:hover {
+      transform: translateY(-4px);
+      border-color: #666666;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    /* Dark Grungy Faded-White Border Box matching Homepage */
+    .grunge-faded-box {
+      position: relative;
+      background:
+        radial-gradient(circle at 12% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 88% 75%, rgba(255, 255, 255, 0.07) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(18, 18, 18, 0.92) 50%, rgba(255, 255, 255, 0.04) 100%);
+      border: 1px solid rgba(242, 242, 242, 0.42);
+      box-shadow:
+        0 0 0 1px rgba(242, 242, 242, 0.12),
+        inset 0 0 18px rgba(255, 255, 255, 0.07),
+        0 10px 25px rgba(0, 0, 0, 0.75);
+    }
+
+    .grunge-faded-box::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border: 1px dashed rgba(242, 242, 242, 0.25);
+      pointer-events: none;
+    }
+
+    /* Sparkly Gold Shimmer Tab for Awards matching Screenshot */
+    @keyframes goldShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes sparkleTwinkle {
+      0%, 100% { opacity: 0.55; transform: scale(0.9) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(18deg); }
+    }
+
+    .sparkly-gold-tab {
+      background: linear-gradient(
+        115deg,
+        #b8860b 0%,
+        #ffd700 22%,
+        #fff3b0 38%,
+        #daa520 55%,
+        #ffe875 74%,
+        #b8860b 100%
+      );
+      background-size: 240% 240%;
+      animation: goldShimmer 3.2s ease-in-out infinite;
+      box-shadow:
+        0 0 14px rgba(255, 215, 0, 0.42),
+        0 0 28px rgba(218, 165, 32, 0.22),
+        inset 0 1px 1px rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 243, 176, 0.85);
+      color: #0a0a0a !important;
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .sparkly-gold-tab:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 20px rgba(255, 215, 0, 0.72),
+        0 0 36px rgba(255, 232, 117, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.95);
+    }
+
+    .gold-sparkle-star {
+      animation: sparkleTwinkle 2s ease-in-out infinite;
+    }
+
+    .gold-sparkle-star-delayed {
+      animation: sparkleTwinkle 2.4s ease-in-out 0.9s infinite;
+    }
+
+    /* Tier Accent Borders */
+    .tier-platinum { border-top: 3px solid #e5e4e2; }
+    .tier-gold { border-top: 3px solid #d4af37; }
+    .tier-silver { border-top: 3px solid #a8b2bd; }
+    .tier-bronze-plus { border-top: 3px solid #cd7f32; }
+    .tier-bronze { border-top: 3px solid #a05a2c; }
+    .tier-logo { border-top: 3px solid #737373; }
+
+    /* Logo Showcase Box Styling */
+    .logo-frame-light {
+      background-color: #f4f4f2;
+      border: 1px solid #3a3a3a;
+    }
+    .logo-frame-dark {
+      background-color: #111111;
+      border: 1px solid #333333;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333333;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555555;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-chalk antialiased selection:bg-chalk selection:text-obsidian">
+
+  <!-- Subtle Film Grain Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- 1. STICKY TOP HEADER NAVIGATION (Matches Reference Screenshot) -->
+  <header class="sticky top-0 z-40 bg-obsidian/95 backdrop-blur-md border-b border-iron">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Left: Circular FAME Logo Lockup + Floyd County CCA -->
+        <a href="index.html" target="_self" class="flex items-center gap-3 group focus:outline-none shrink-0">
+          <img
+            src="FAME_white.png"
+            alt="FAME Logo"
+            class="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.18)]"
+            onerror="this.style.display='none'; document.getElementById('nav-logo-fallback').classList.remove('hidden');"
+          />
+          <span id="nav-logo-fallback" class="hidden font-display text-2xl sm:text-3xl font-bold uppercase tracking-widest text-white">
+            FAME
+          </span>
+          <span class="hidden sm:inline-block h-5 w-[1px] bg-iron"></span>
+          <span class="hidden sm:inline-block font-mono text-[11px] uppercase tracking-widest text-silver group-hover:text-white transition-colors">
+            Floyd County CCA
+          </span>
+        </a>
+
+        <!-- Right: Desktop Navigation Links & Mobile Menu Button -->
+        <div class="flex items-center">
+          <!-- Desktop Navigation Links -->
+          <nav class="hidden lg:flex items-center space-x-5 xl:space-x-6" aria-label="Primary Navigation">
+            <a href="index.html#about" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">The Pathway</a>
+            <a href="index.html#teacher" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Meet The Teacher</a>
+            <a href="social.html" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">FAME Socials</a>
+            <button
+              type="button"
+              data-open-reel
+              class="px-4 py-2 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver transition-colors cursor-pointer"
+            >
+              Watch Reel
+            </button>
+            <!-- Sparkly Gold Awards Tab -->
+            <a
+              href="https://sites.google.com/floydboe.net/the-famecca-awards/full-page-embed"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="sparkly-gold-tab inline-flex items-center gap-1.5 px-4 py-2 rounded text-black font-display uppercase tracking-widest text-xs font-bold"
+              aria-label="FAMECCA Awards"
+            >
+              <svg class="w-3.5 h-3.5 text-black gold-sparkle-star" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <span>Awards</span>
+              <svg class="w-2.5 h-2.5 text-black gold-sparkle-star-delayed" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M10 1l2.1 5.9L18 9l-5.9 2.1L10 17l-2.1-5.9L2 9l5.9-2.1L10 1z"></path>
+              </svg>
+            </a>
+            <a href="sponsorships.html" target="_self" aria-current="page" class="font-display uppercase tracking-widest text-sm text-white border-b-2 border-white py-2">Sponsorships</a>
+            <a href="syllabus.html" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Syllabus</a>
+            <a href="#contact" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Contact</a>
+          </nav>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            aria-label="Toggle Menu"
+            aria-expanded="false"
+            class="lg:hidden p-2.5 rounded border border-iron text-silver hover:text-white hover:border-white focus:outline-none"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-charcoal border-b border-iron px-4 pt-2 pb-5 space-y-2">
+      <a href="index.html#about" target="_self" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-silver hover:text-white hover:bg-slateDark">The Pathway</a>
+      <a href="index.html#teacher" target="_self" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-silver hover:text-white hover:bg-slateDark">Meet The Teacher</a>
+      <a href="social.html" target="_self" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-silver hover:text-white hover:bg-slateDark">FAME Socials</a>
+      <button
+        type="button"
+        data-open-reel
+        class="mobile-nav-link block w-full text-center mt-2 px-4 py-3 rounded bg-white text-black font-display uppercase tracking-widest text-sm font-bold cursor-pointer"
+      >
+        Watch Reel
+      </button>
+      <!-- Sparkly Gold Awards Tab (Mobile) -->
+      <a
+        href="https://sites.google.com/floydboe.net/the-famecca-awards/full-page-embed"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-nav-link sparkly-gold-tab w-full flex items-center justify-center gap-2 mt-2 px-4 py-3 rounded text-black font-display uppercase tracking-widest text-sm font-bold"
+      >
+        <svg class="w-4 h-4 text-black gold-sparkle-star" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+        </svg>
+        <span>Awards</span>
+        <svg class="w-3 h-3 text-black gold-sparkle-star-delayed" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M10 1l2.1 5.9L18 9l-5.9 2.1L10 17l-2.1-5.9L2 9l5.9-2.1L10 1z"></path>
+        </svg>
+      </a>
+      <a href="sponsorships.html" target="_self" aria-current="page" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-white bg-slateDark border-b-2 border-white">Sponsorships</a>
+      <a href="syllabus.html" target="_self" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-silver hover:text-white hover:bg-slateDark">Syllabus</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-3 rounded font-display uppercase tracking-widest text-base text-silver hover:text-white hover:bg-slateDark">Contact</a>
+    </div>
+  </header>
+
+  <!-- 2. HERO BANNER FOR FAME SPONSORSHIPS -->
+  <section class="relative overflow-hidden border-b border-iron bg-gradient-to-b from-charcoal via-obsidian to-obsidian">
+    <!-- Subtle Cinema Spotlight Radial Accent -->
+    <div class="absolute inset-0 pointer-events-none opacity-25" style="background: radial-gradient(circle at 50% 0%, rgba(242,242,242,0.16), transparent 65%);" aria-hidden="true"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 relative z-10 text-center">
+      <!-- Red Blinking Dot Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slateDark border border-iron mb-6">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+        </span>
+        <span class="font-mono text-[11px] sm:text-xs tracking-[0.2em] uppercase text-chalk font-semibold">
+          PARTNER WITH FAME // FLOYD COUNTY CCA
+        </span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl tracking-wide uppercase text-chalk mb-6 drop-shadow">
+        FAME Sponsorships
+      </h1>
+
+      <!-- Dark Grungy Faded-White Border Box matching Homepage -->
+      <div class="mb-8 flex justify-center">
+        <div class="grunge-faded-box inline-block px-6 sm:px-10 py-3 sm:py-4 rounded-sm">
+          <!-- Subtle distressed corner ticks -->
+          <span class="absolute top-1 left-1 w-2 h-2 border-t border-l border-chalk/60"></span>
+          <span class="absolute top-1 right-1 w-2 h-2 border-t border-r border-chalk/60"></span>
+          <span class="absolute bottom-1 left-1 w-2 h-2 border-b border-l border-chalk/60"></span>
+          <span class="absolute bottom-1 right-1 w-2 h-2 border-b border-r border-chalk/60"></span>
+
+          <p class="font-typewriter text-lg sm:text-2xl lg:text-[26px] text-chalk tracking-[0.16em] uppercase">
+            Film, Arts, Media &amp; Entertainment
+          </p>
+        </div>
+      </div>
+
+      <!-- Enhanced Partnership Pitch -->
+      <div class="max-w-3xl mx-auto space-y-4">
+        <p class="text-base sm:text-lg text-silver leading-relaxed">
+          Invest directly in hands-on, industry-grade media education for the next generation of student filmmakers, podcasters, broadcast journalists, and digital creators at the <span class="text-chalk font-semibold">Floyd County College &amp; Career Academy</span>.
+        </p>
+        <p class="text-sm sm:text-base text-ash leading-relaxed">
+          Your sponsorship fuels real-world studio equipment, student productions, and community storytelling—while connecting your business or organization with <span class="text-chalk font-semibold">over 300,000+ annual views</span> across FAME's podcasts, news broadcasts, and social media channels, plus regional visibility across Floyd County and potential <span class="text-chalk font-semibold">tax-deductible donation benefits</span>.
+        </p>
+      </div>
+
+      <!-- Quick Value Highlights -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mt-10 text-left">
+        <div class="grunge-card p-4 rounded-lg flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded bg-iron/70 border border-iron flex items-center justify-center shrink-0 text-chalk">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div>
+            <p class="font-mono text-xs text-ash uppercase tracking-wider">Annual Reach</p>
+            <p class="font-typewriter text-lg text-chalk">300,000+ Views</p>
+            <p class="text-xs text-silver mt-0.5">Across YouTube, Instagram &amp; student broadcasts</p>
+          </div>
+        </div>
+
+        <div class="grunge-card p-4 rounded-lg flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded bg-iron/70 border border-iron flex items-center justify-center shrink-0 text-chalk">
+            <i class="fa-solid fa-microphone-lines"></i>
+          </div>
+          <div>
+            <p class="font-mono text-xs text-ash uppercase tracking-wider">Studio Access</p>
+            <p class="font-typewriter text-lg text-chalk">Podcast &amp; Broadcast</p>
+            <p class="text-xs text-silver mt-0.5">On-air mentions, commercials &amp; studio time</p>
+          </div>
+        </div>
+
+        <div class="grunge-card p-4 rounded-lg flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded bg-iron/70 border border-iron flex items-center justify-center shrink-0 text-chalk">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <div>
+            <p class="font-mono text-xs text-ash uppercase tracking-wider">Community Impact</p>
+            <p class="font-typewriter text-lg text-chalk">Student Career Prep</p>
+            <p class="text-xs text-silver mt-0.5">Supports local CCA talent &amp; tax-deductible giving</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Action Buttons -->
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <a href="#tiers" class="px-6 py-3 rounded bg-chalk text-obsidian font-mono text-xs font-bold uppercase tracking-widest hover:bg-silver transition-colors">
+          View Sponsorship Tiers
+        </a>
+        <a href="#sponsors" class="px-6 py-3 rounded bg-slateDark border border-iron text-chalk font-mono text-xs font-bold uppercase tracking-widest hover:border-chalk transition-colors">
+          Meet Our Current Partners
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Film Strip Divider -->
+  <div class="film-strip-divider w-full" aria-hidden="true"></div>
+
+  <!-- 3. SPONSORSHIP PRICE LIST SECTION (ALL 6 TIERS) -->
+  <section id="tiers" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <p class="font-mono text-xs uppercase tracking-[0.25em] text-ash mb-2">SCENE 01 // PARTNERSHIP PACKAGES</p>
+      <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-wide text-chalk mb-4">
+        Sponsorship Price List
+      </h2>
+      <p class="text-sm sm:text-base text-silver">
+        Choose a sponsorship tier tailored to your organization's marketing goals and community support level. Every contribution directly equips FAME students.
+      </p>
+    </div>
+
+    <!-- 6-Tier Responsive Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+      <!-- Tier 1: PLATINUM - $800 -->
+      <article class="grunge-card tier-platinum rounded-xl p-6 sm:p-7 flex flex-col justify-between relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-1 rounded bg-white/10 text-chalk border border-white/25">
+              Premier Tier
+            </span>
+            <span class="font-mono text-xs text-ash">TAKE 01</span>
+          </div>
+          <h3 class="font-typewriter text-2xl sm:text-3xl text-chalk tracking-wide">PLATINUM</h3>
+          <div class="mt-2 mb-5 pb-5 border-b border-iron flex items-baseline gap-2">
+            <span class="font-display text-4xl sm:text-5xl text-chalk">$800</span>
+            <span class="font-mono text-xs text-ash uppercase">/ Season</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-silver">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-chalk mt-1 shrink-0 text-xs"></i>
+              <span><strong class="text-chalk">4x uses</strong> of podcast studio space (up to 20 minutes each)</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-chalk mt-1 shrink-0 text-xs"></i>
+              <span><strong class="text-chalk">1x 30-second commercial</strong> on each podcast</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-chalk mt-1 shrink-0 text-xs"></i>
+              <span>Logo shown at the start of podcasts, news shows, and website</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-chalk mt-1 shrink-0 text-xs"></i>
+              <span>Thank you shout out at the end of each news episode</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-chalk mt-1 shrink-0 text-xs"></i>
+              <span>Business will get a thank you mention at the start/end of our podcasts</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-chalk mt-1 shrink-0 text-xs"></i>
+              <span>Social Media Shoutouts on FAME's Instagram page <strong class="text-chalk">2/month</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-7 pt-4 border-t border-iron/70">
+          <a
+            href="#contact"
+            onclick="selectSponsorTier('Platinum ($800)')"
+            class="block w-full text-center py-3 px-4 rounded bg-chalk text-obsidian font-mono text-xs font-bold uppercase tracking-widest hover:bg-silver transition-colors"
+          >
+            Inquire About Platinum
+          </a>
+        </div>
+      </article>
+
+      <!-- Tier 2: GOLD - $400 -->
+      <article class="grunge-card tier-gold rounded-xl p-6 sm:p-7 flex flex-col justify-between relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-1 rounded bg-amber-500/15 text-amber-300 border border-amber-400/30">
+              Featured Tier
+            </span>
+            <span class="font-mono text-xs text-ash">TAKE 02</span>
+          </div>
+          <h3 class="font-typewriter text-2xl sm:text-3xl text-amber-300 tracking-wide">GOLD</h3>
+          <div class="mt-2 mb-5 pb-5 border-b border-iron flex items-baseline gap-2">
+            <span class="font-display text-4xl sm:text-5xl text-chalk">$400</span>
+            <span class="font-mono text-xs text-ash uppercase">/ Season</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-silver">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-amber-300 mt-1 shrink-0 text-xs"></i>
+              <span><strong class="text-chalk">2x uses</strong> of podcast studio space (up to 20 minutes each)</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-amber-300 mt-1 shrink-0 text-xs"></i>
+              <span>Logo shown at the start of podcasts, news shows, and website</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-amber-300 mt-1 shrink-0 text-xs"></i>
+              <span>Thank you shout out at the end of each news episode</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-amber-300 mt-1 shrink-0 text-xs"></i>
+              <span>Business will get a thank you mention at the start/end of our podcasts</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-amber-300 mt-1 shrink-0 text-xs"></i>
+              <span>Social Media Shoutouts on FAME's Instagram page <strong class="text-chalk">2/month</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-7 pt-4 border-t border-iron/70">
+          <a
+            href="#contact"
+            onclick="selectSponsorTier('Gold ($400)')"
+            class="block w-full text-center py-3 px-4 rounded bg-amber-400/90 text-obsidian font-mono text-xs font-bold uppercase tracking-widest hover:bg-amber-300 transition-colors"
+          >
+            Inquire About Gold
+          </a>
+        </div>
+      </article>
+
+      <!-- Tier 3: SILVER - $225 -->
+      <article class="grunge-card tier-silver rounded-xl p-6 sm:p-7 flex flex-col justify-between relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-1 rounded bg-slate-400/15 text-slate-200 border border-slate-400/30">
+              Broadcast Tier
+            </span>
+            <span class="font-mono text-xs text-ash">TAKE 03</span>
+          </div>
+          <h3 class="font-typewriter text-2xl sm:text-3xl text-slate-200 tracking-wide">SILVER</h3>
+          <div class="mt-2 mb-5 pb-5 border-b border-iron flex items-baseline gap-2">
+            <span class="font-display text-4xl sm:text-5xl text-chalk">$225</span>
+            <span class="font-mono text-xs text-ash uppercase">/ Season</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-silver">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-slate-300 mt-1 shrink-0 text-xs"></i>
+              <span>Logo on news segments and on each podcast episode</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-slate-300 mt-1 shrink-0 text-xs"></i>
+              <span>Thank you shout out at the end of each news episode</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-slate-300 mt-1 shrink-0 text-xs"></i>
+              <span>Business will get a thank you mention at the start/end of our podcasts</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-slate-300 mt-1 shrink-0 text-xs"></i>
+              <span>Social Media Shoutouts on FAME's Instagram page <strong class="text-chalk">2/month</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-7 pt-4 border-t border-iron/70">
+          <a
+            href="#contact"
+            onclick="selectSponsorTier('Silver ($225)')"
+            class="block w-full text-center py-3 px-4 rounded bg-slateDark border border-slate-400/50 text-chalk font-mono text-xs font-bold uppercase tracking-widest hover:bg-slate-300 hover:text-obsidian transition-colors"
+          >
+            Inquire About Silver
+          </a>
+        </div>
+      </article>
+
+      <!-- Tier 4: BRONZE+ - $175 -->
+      <article class="grunge-card tier-bronze-plus rounded-xl p-6 sm:p-7 flex flex-col justify-between relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-1 rounded bg-orange-500/15 text-orange-300 border border-orange-400/30">
+              Podcast + Social
+            </span>
+            <span class="font-mono text-xs text-ash">TAKE 04</span>
+          </div>
+          <h3 class="font-typewriter text-2xl sm:text-3xl text-orange-300 tracking-wide">BRONZE+</h3>
+          <div class="mt-2 mb-5 pb-5 border-b border-iron flex items-baseline gap-2">
+            <span class="font-display text-4xl sm:text-5xl text-chalk">$175</span>
+            <span class="font-mono text-xs text-ash uppercase">/ Season</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-silver">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-orange-300 mt-1 shrink-0 text-xs"></i>
+              <span>Business will get a thank you mention at the start/end of our podcasts</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-orange-300 mt-1 shrink-0 text-xs"></i>
+              <span>Logo shown on each podcast episode <strong class="text-chalk">10/month</strong></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-orange-300 mt-1 shrink-0 text-xs"></i>
+              <span>Social Media Shoutouts on FAME's Instagram page <strong class="text-chalk">2/month</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-7 pt-4 border-t border-iron/70">
+          <a
+            href="#contact"
+            onclick="selectSponsorTier('Bronze+ ($175)')"
+            class="block w-full text-center py-3 px-4 rounded bg-slateDark border border-orange-400/40 text-chalk font-mono text-xs font-bold uppercase tracking-widest hover:bg-orange-400 hover:text-obsidian transition-colors"
+          >
+            Inquire About Bronze+
+          </a>
+        </div>
+      </article>
+
+      <!-- Tier 5: BRONZE - $100 -->
+      <article class="grunge-card tier-bronze rounded-xl p-6 sm:p-7 flex flex-col justify-between relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-1 rounded bg-amber-700/20 text-amber-400 border border-amber-600/30">
+              Podcast Tier
+            </span>
+            <span class="font-mono text-xs text-ash">TAKE 05</span>
+          </div>
+          <h3 class="font-typewriter text-2xl sm:text-3xl text-amber-400 tracking-wide">BRONZE</h3>
+          <div class="mt-2 mb-5 pb-5 border-b border-iron flex items-baseline gap-2">
+            <span class="font-display text-4xl sm:text-5xl text-chalk">$100</span>
+            <span class="font-mono text-xs text-ash uppercase">/ Season</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-silver">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-amber-400 mt-1 shrink-0 text-xs"></i>
+              <span>Business will get a thank you mention at the end of each podcast</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-amber-400 mt-1 shrink-0 text-xs"></i>
+              <span>Logo shown on each podcast episode <strong class="text-chalk">10/month</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-7 pt-4 border-t border-iron/70">
+          <a
+            href="#contact"
+            onclick="selectSponsorTier('Bronze ($100)')"
+            class="block w-full text-center py-3 px-4 rounded bg-slateDark border border-iron text-chalk font-mono text-xs font-bold uppercase tracking-widest hover:border-chalk transition-colors"
+          >
+            Inquire About Bronze
+          </a>
+        </div>
+      </article>
+
+      <!-- Tier 6: LOGO SPONSOR - $50/Season -->
+      <article class="grunge-card tier-logo rounded-xl p-6 sm:p-7 flex flex-col justify-between relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-1 rounded bg-neutral-800 text-silver border border-neutral-600">
+              Supporter Tier
+            </span>
+            <span class="font-mono text-xs text-ash">TAKE 06</span>
+          </div>
+          <h3 class="font-typewriter text-2xl sm:text-3xl text-chalk tracking-wide">LOGO SPONSOR</h3>
+          <div class="mt-2 mb-5 pb-5 border-b border-iron flex items-baseline gap-2">
+            <span class="font-display text-4xl sm:text-5xl text-chalk">$50</span>
+            <span class="font-mono text-xs text-ash uppercase">/ Season</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-silver">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-silver mt-1 shrink-0 text-xs"></i>
+              <span>Logo featured on the FAME podcast webpage</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-silver mt-1 shrink-0 text-xs"></i>
+              <span>Direct support for student media equipment &amp; classroom productions</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-7 pt-4 border-t border-iron/70">
+          <a
+            href="#contact"
+            onclick="selectSponsorTier('Logo Sponsor ($50/Season)')"
+            class="block w-full text-center py-3 px-4 rounded bg-slateDark border border-iron text-chalk font-mono text-xs font-bold uppercase tracking-widest hover:border-chalk transition-colors"
+          >
+            Become a Logo Sponsor
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Film Strip Divider -->
+  <div class="film-strip-divider w-full" aria-hidden="true"></div>
+
+  <!-- 4. CURRENT SPONSORS & PARTNERS SECTION -->
+  <section id="sponsors" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-charcoal/70 border-b border-iron">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="font-mono text-xs uppercase tracking-[0.25em] text-ash mb-2">SCENE 02 // ROLLING CREDITS</p>
+        <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-wide text-chalk mb-4">
+          Current Sponsors &amp; Partners
+        </h2>
+        <p class="text-sm sm:text-base text-silver">
+          Thank you to the local businesses, arts organizations, and educational institutions making FAME Pathway student productions possible.
+        </p>
+      </div>
+
+      <!-- PLATINUM TIER SPONSORS -->
+      <div class="mb-14">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-3.5 py-1 rounded bg-white/10 border border-white/30 font-mono text-xs font-bold uppercase tracking-widest text-chalk">
+            Platinum Tier
+          </span>
+          <div class="h-px bg-iron flex-1"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- RACA -->
+          <div class="grunge-card tier-platinum rounded-xl p-6 sm:p-7 flex flex-col sm:flex-row items-center gap-6">
+            <div class="logo-frame-light w-full sm:w-56 h-36 rounded-lg p-4 flex items-center justify-center shrink-0">
+              <img
+                src="RACA_Logo_Horizontal_for Light Background.png"
+                alt="Rome Area Council for the Arts (RACA) Logo"
+                class="max-h-full max-w-full object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/320x140/f4f4f2/121212?text=RACA';"
+              />
+            </div>
+            <div class="flex-1 text-center sm:text-left">
+              <span class="inline-block font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver mb-2">
+                Organization
+              </span>
+              <h3 class="font-typewriter text-xl sm:text-2xl text-chalk">
+                RACA (Rome Area Council for the Arts)
+              </h3>
+              <p class="text-xs sm:text-sm text-ash mt-2 leading-relaxed">
+                Championing arts education, creative expression, and cultural vitality across Rome and Floyd County.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GOLD TIER SPONSORS (3 SPONSORS) -->
+      <div class="mb-14">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-3.5 py-1 rounded bg-amber-500/15 border border-amber-400/40 font-mono text-xs font-bold uppercase tracking-widest text-amber-300">
+            Gold Tier
+          </span>
+          <div class="h-px bg-iron flex-1"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Gold Sponsor 1: Hardy Reality - MJ Chisholm -->
+          <div class="grunge-card tier-gold rounded-xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="logo-frame-light w-full h-40 rounded-lg p-4 flex items-center justify-center mb-5">
+                <img
+                  src="MJ Chisholm Hardy Readly Name Logo_Final 1.jpg"
+                  alt="Hardy Reality - MJ Chisholm Logo"
+                  class="max-h-full max-w-full object-contain"
+                  onerror="this.onerror=null; this.src='https://placehold.co/320x150/f4f4f2/121212?text=Hardy+Realty+-+MJ+Chisholm';"
+                />
+              </div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver">
+                  Business
+                </span>
+                <span class="font-mono text-[11px] text-amber-300 uppercase">Gold Partner</span>
+              </div>
+              <h3 class="font-typewriter text-xl text-chalk">
+                Hardy Reality &ndash; MJ Chisholm
+              </h3>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-iron/70">
+              <a
+                href="mailto:mj@hardyrealty.com"
+                class="inline-flex items-center gap-2 text-xs font-mono text-silver hover:text-chalk bg-slateDark hover:bg-iron/80 border border-iron px-3.5 py-2 rounded transition-colors w-full justify-center"
+              >
+                <i class="fa-solid fa-envelope text-amber-300"></i>
+                <span>mj@hardyrealty.com</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Gold Sponsor 2: RLT (Rome Little Theatre) -->
+          <div class="grunge-card tier-gold rounded-xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="logo-frame-dark w-full h-40 rounded-lg p-4 flex items-center justify-center mb-5">
+                <img
+                  src="RLTwhite.png"
+                  alt="Rome Little Theatre (RLT) Logo"
+                  class="max-h-full max-w-full object-contain"
+                  onerror="this.onerror=null; this.src='https://placehold.co/320x150/111111/f2f2f2?text=Rome+Little+Theatre';"
+                />
+              </div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver">
+                  Entertainment
+                </span>
+                <span class="font-mono text-[11px] text-amber-300 uppercase">Gold Partner</span>
+              </div>
+              <h3 class="font-typewriter text-xl text-chalk">
+                RLT (Rome Little Theatre)
+              </h3>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-iron/70">
+              <a
+                href="mailto:romelittletheatre@gmail.com"
+                class="inline-flex items-center gap-2 text-xs font-mono text-silver hover:text-chalk bg-slateDark hover:bg-iron/80 border border-iron px-3.5 py-2 rounded transition-colors w-full justify-center"
+              >
+                <i class="fa-solid fa-envelope text-amber-300"></i>
+                <span>romelittletheatre@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Gold Sponsor 3: Children's Museum of Rome -->
+          <div class="grunge-card tier-gold rounded-xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="logo-frame-light w-full h-40 rounded-lg p-4 flex items-center justify-center mb-5">
+                <img
+                  src="CMOR.JPG"
+                  alt="Children's Museum of Rome Logo"
+                  class="max-h-full max-w-full object-contain"
+                  onerror="this.onerror=null; this.src='https://placehold.co/320x150/f4f4f2/121212?text=Children%27s+Museum+of+Rome';"
+                />
+              </div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver">
+                  Organization
+                </span>
+                <span class="font-mono text-[11px] text-amber-300 uppercase">Gold Partner</span>
+              </div>
+              <h3 class="font-typewriter text-xl text-chalk">
+                Children's Museum of Rome
+              </h3>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-iron/70">
+              <span class="inline-flex items-center gap-2 text-xs font-mono text-ash bg-slateDark/60 border border-iron/70 px-3.5 py-2 rounded w-full justify-center">
+                <i class="fa-solid fa-award text-amber-300"></i>
+                <span>Official Gold Organization Sponsor</span>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SILVER TIER SPONSORS (2 SPONSORS) -->
+      <div class="mb-14">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-3.5 py-1 rounded bg-slate-400/15 border border-slate-400/40 font-mono text-xs font-bold uppercase tracking-widest text-slate-200">
+            Silver Tier
+          </span>
+          <div class="h-px bg-iron flex-1"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Silver Sponsor 1: River City Bank -->
+          <div class="grunge-card tier-silver rounded-xl p-6 flex flex-col sm:flex-row items-center gap-6">
+            <div class="logo-frame-light w-full sm:w-52 h-36 rounded-lg p-4 flex items-center justify-center shrink-0">
+              <img
+                src="RCB-Logo-and-Tagline.png"
+                alt="River City Bank Logo"
+                class="max-h-full max-w-full object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/300x140/f4f4f2/121212?text=River+City+Bank';"
+              />
+            </div>
+            <div class="flex-1 w-full text-center sm:text-left">
+              <span class="inline-block font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver mb-2">
+                Business
+              </span>
+              <h3 class="font-typewriter text-xl text-chalk mb-4">
+                River City Bank
+              </h3>
+              <a
+                href="mailto:jennifer.selman@rivercity.bank"
+                class="inline-flex items-center gap-2 text-xs font-mono text-silver hover:text-chalk bg-slateDark hover:bg-iron/80 border border-iron px-3.5 py-2 rounded transition-colors"
+              >
+                <i class="fa-solid fa-envelope text-slate-300"></i>
+                <span>jennifer.selman@rivercity.bank</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Silver Sponsor 2: Rome Symphony Orchestra -->
+          <div class="grunge-card tier-silver rounded-xl p-6 flex flex-col sm:flex-row items-center gap-6">
+            <div class="logo-frame-light w-full sm:w-52 h-36 rounded-lg p-4 flex items-center justify-center shrink-0">
+              <img
+                src="RSO.jpg"
+                alt="Rome Symphony Orchestra Logo"
+                class="max-h-full max-w-full object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/300x140/f4f4f2/121212?text=Rome+Symphony+Orchestra';"
+              />
+            </div>
+            <div class="flex-1 w-full text-center sm:text-left">
+              <span class="inline-block font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver mb-2">
+                Organization
+              </span>
+              <h3 class="font-typewriter text-xl text-chalk mb-4">
+                Rome Symphony Orchestra
+              </h3>
+              <a
+                href="mailto:office@romesymphony.org"
+                class="inline-flex items-center gap-2 text-xs font-mono text-silver hover:text-chalk bg-slateDark hover:bg-iron/80 border border-iron px-3.5 py-2 rounded transition-colors"
+              >
+                <i class="fa-solid fa-envelope text-slate-300"></i>
+                <span>office@romesymphony.org</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BRONZE TIER SPONSORS (1 SPONSOR) -->
+      <div>
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-3.5 py-1 rounded bg-amber-700/20 border border-amber-600/40 font-mono text-xs font-bold uppercase tracking-widest text-amber-400">
+            Bronze Tier
+          </span>
+          <div class="h-px bg-iron flex-1"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Bronze Sponsor 1: GHC (Georgia Highlands College) -->
+          <div class="grunge-card tier-bronze rounded-xl p-6 flex flex-col sm:flex-row items-center gap-6">
+            <div class="logo-frame-light w-full sm:w-52 h-36 rounded-lg p-4 flex items-center justify-center shrink-0">
+              <img
+                src="GHC Logo FULL_COLOR (1).png"
+                alt="Georgia Highlands College (GHC) Logo"
+                class="max-h-full max-w-full object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/300x140/f4f4f2/121212?text=Georgia+Highlands+College';"
+              />
+            </div>
+            <div class="flex-1 w-full text-center sm:text-left">
+              <span class="inline-block font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver mb-2">
+                College
+              </span>
+              <h3 class="font-typewriter text-xl text-chalk mb-4">
+                GHC (Georgia Highlands College)
+              </h3>
+              <a
+                href="mailto:mandrews@highlands.edu"
+                class="inline-flex items-center gap-2 text-xs font-mono text-silver hover:text-chalk bg-slateDark hover:bg-iron/80 border border-iron px-3.5 py-2 rounded transition-colors"
+              >
+                <i class="fa-solid fa-envelope text-amber-400"></i>
+                <span>mandrews@highlands.edu</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. CONTACT & SOCIAL MEDIA FOOTER (Matching Homepage & Syllabus) -->
+  <footer id="contact" class="bg-charcoal border-t border-iron pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-iron">
+
+        <!-- Left Column: FAME Branding & Contact -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-4">
+            <img
+              src="FAME_white.png"
+              alt="FAME Logo"
+              class="h-14 w-auto object-contain"
+              onerror="this.style.display='none'"
+            />
+            <div>
+              <span class="font-mono text-xs uppercase tracking-[0.25em] text-ash block">Floyd County College &amp; Career Academy</span>
+              <h2 class="font-display text-3xl sm:text-4xl text-chalk">Connect With Us</h2>
+            </div>
+          </div>
+
+          <p class="font-sans text-silver text-base max-w-xl leading-relaxed">
+            Have questions about joining the FAME Pathway, collaborating on a community media project, or supporting student productions? Reach out to <strong class="text-chalk">Mr. Williams</strong> directly via <strong class="text-chalk">ParentSquare</strong> or email below.
+          </p>
+
+          <div id="selected-tier-badge" class="hidden inline-block font-mono text-xs px-3 py-1.5 rounded bg-amber-500/20 text-amber-300 border border-amber-400/30">
+            Selected Tier: None
+          </div>
+
+          <!-- Email Action Box -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+            <a
+              id="email-mailto-link"
+              href="mailto:rickwilliams@floydboe.net"
+              class="inline-flex items-center justify-center gap-3 px-6 py-4 rounded bg-chalk text-obsidian font-mono text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-silver transition-colors"
+            >
+              <i class="fa-solid fa-envelope"></i>
+              rickwilliams@floydboe.net
+            </a>
+
+            <button
+              id="copy-email-btn"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 px-5 py-4 rounded border border-iron bg-obsidian text-silver hover:text-chalk hover:border-chalk font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              <i class="fa-regular fa-copy"></i>
+              <span id="copy-email-label">Copy Email</span>
+            </button>
+          </div>
+
+          <!-- ParentSquare Note -->
+          <div class="inline-flex items-center gap-2.5 text-xs font-mono text-ash bg-obsidian/90 border border-iron px-4 py-2.5 rounded">
+            <i class="fa-solid fa-comment-dots text-chalk"></i>
+            <span>Parents &amp; Students: Direct messaging is also available anytime via <strong class="text-chalk">ParentSquare</strong>.</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Official Social Media Channels -->
+        <div class="lg:col-span-5 flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-[0.25em] text-ash block mb-2">Official Channels</span>
+            <h3 class="font-typewriter text-2xl text-chalk mb-5">Follow Our Productions</h3>
+
+            <div class="space-y-4">
+              <!-- Instagram Link -->
+              <a
+                href="https://www.instagram.com/fame_cca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grunge-card p-4 rounded-lg flex items-center justify-between group"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded bg-obsidian border border-iron flex items-center justify-center text-chalk group-hover:border-chalk transition-colors">
+                    <i class="fa-brands fa-instagram text-2xl"></i>
+                  </div>
+                  <div>
+                    <p class="font-mono text-xs uppercase tracking-wider text-ash">Instagram</p>
+                    <p class="font-typewriter text-lg text-chalk">@fame_cca</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-ash group-hover:text-chalk transition-colors"></i>
+              </a>
+
+              <!-- YouTube Link -->
+              <a
+                href="https://www.youtube.com/@famepathwayatthefcscca4336"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grunge-card p-4 rounded-lg flex items-center justify-between group"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded bg-obsidian border border-iron flex items-center justify-center text-chalk group-hover:border-chalk transition-colors">
+                    <i class="fa-brands fa-youtube text-2xl"></i>
+                  </div>
+                  <div>
+                    <p class="font-mono text-xs uppercase tracking-wider text-ash">YouTube Channel</p>
+                    <p class="font-typewriter text-base sm:text-lg text-chalk">FAME Pathway at FCS CCA</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-ash group-hover:text-chalk transition-colors"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright & Slate Info -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-ash">
+        <p>&copy; <span id="year">2026</span> FAME Pathway &mdash; Floyd County College &amp; Career Academy. All Rights Reserved.</p>
+        <p class="tracking-widest uppercase">ROLL SOUND &bull; ROLL CAMERA &bull; ACTION</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bottom Clapperboard Slate Strip -->
+  <div class="slate-stripes w-full" aria-hidden="true"></div>
+
+  <!-- THEATER PROMO REEL LIGHTBOX MODAL (Matching Homepage & Syllabus) -->
+  <div
+    id="reel-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="reel-modal-title"
+  >
+    <div class="relative w-full max-w-5xl bg-charcoal border border-iron rounded-lg shadow-2xl overflow-hidden">
+      <!-- Top Slate Bar -->
+      <div class="slate-stripes w-full"></div>
+
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-5 py-3.5 bg-obsidian border-b border-iron">
+        <div class="flex items-center gap-3">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span>
+          <h3 id="reel-modal-title" class="font-mono text-xs sm:text-sm uppercase tracking-widest text-chalk">
+            Screening Room &mdash; FAME Pathway Promo Reel
+          </h3>
+        </div>
+        <button
+          id="close-reel-modal"
+          type="button"
+          class="text-silver hover:text-chalk px-3 py-1 rounded border border-iron hover:border-chalk font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
+        >
+          Close [ESC]
+        </button>
+      </div>
+
+      <!-- Video Player Container -->
+      <div class="bg-black aspect-video w-full flex items-center justify-center">
+        <video
+          id="modal-reel-video"
+          class="w-full h-full object-contain"
+          controls
+          playsinline
+          preload="metadata"
+        >
+          <source src="FAME_Promo_Reel.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Mobile Navigation, Copy Email, Tier Selection & Promo Reel Modal -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set dynamic copyright year
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', String(isHidden));
+          if (iconOpen) iconOpen.classList.toggle('hidden', isHidden);
+          if (iconClose) iconClose.classList.toggle('hidden', !isHidden);
+        });
+
+        mobileMenu.querySelectorAll('a, button').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (iconOpen) iconOpen.classList.remove('hidden');
+            if (iconClose) iconClose.classList.add('hidden');
+          });
+        });
+      }
+
+      // Copy Email to Clipboard (iFrame safe fallback using execCommand)
+      const copyBtn = document.getElementById('copy-email-btn');
+      const copyLabel = document.getElementById('copy-email-label');
+      const instructorEmail = 'rickwilliams@floydboe.net';
+
+      if (copyBtn && copyLabel) {
+        copyBtn.addEventListener('click', () => {
+          const tempInput = document.createElement('textarea');
+          tempInput.value = instructorEmail;
+          tempInput.style.position = 'fixed';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+
+          try {
+            document.execCommand('copy');
+            copyLabel.textContent = 'Copied!';
+            setTimeout(() => {
+              copyLabel.textContent = 'Copy Email';
+            }, 2500);
+          } catch (err) {
+            copyLabel.textContent = 'rickwilliams@floydboe.net';
+          }
+
+          document.body.removeChild(tempInput);
+        });
+      }
+
+      // Promo Reel Modal Logic
+      const reelModal = document.getElementById('reel-modal');
+      const modalVideo = document.getElementById('modal-reel-video');
+      const openReelButtons = document.querySelectorAll('[data-open-reel]');
+      const closeReelBtn = document.getElementById('close-reel-modal');
+
+      function openReelModal() {
+        if (!reelModal) return;
+        reelModal.classList.remove('hidden');
+        reelModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        if (modalVideo) {
+          modalVideo.currentTime = 0;
+          modalVideo.play().catch(() => {
+            // Autoplay with sound may be blocked by browser; user can click play
+          });
+        }
+      }
+
+      function closeReelModal() {
+        if (!reelModal) return;
+        reelModal.classList.add('hidden');
+        reelModal.classList.remove('flex');
+        document.body.style.overflow = '';
+        if (modalVideo) {
+          modalVideo.pause();
+        }
+      }
+
+      openReelButtons.forEach(btn => {
+        btn.addEventListener('click', openReelModal);
+      });
+
+      if (closeReelBtn) {
+        closeReelBtn.addEventListener('click', closeReelModal);
+      }
+
+      // Close modal on backdrop click
+      if (reelModal) {
+        reelModal.addEventListener('click', (e) => {
+          if (e.target === reelModal) {
+            closeReelModal();
+          }
+        });
+      }
+
+      // Close modal on Escape key press
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && reelModal && !reelModal.classList.contains('hidden')) {
+          closeReelModal();
+        }
+      });
+    });
+
+    // Highlight selected tier in Contact section and update mailto subject
+    function selectSponsorTier(tierName) {
+      const badge = document.getElementById('selected-tier-badge');
+      const mailtoLink = document.getElementById('email-mailto-link');
+      if (badge) {
+        badge.textContent = 'Selected Tier: ' + tierName;
+        badge.classList.remove('hidden');
+      }
+      if (mailtoLink) {
+        mailtoLink.href = 'mailto:rickwilliams@floydboe.net?subject=' + encodeURIComponent('FAME Sponsorship Inquiry - ' + tierName);
+      }
+    }
+  </script>
+</body>
+</html>
