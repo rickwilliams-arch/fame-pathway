@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAME Podcasts | Film, Arts, Media &amp; Entertainment — Floyd County CCA</title>
+  <meta name="description" content="Tune in to student-produced podcasts from the FAME Pathway at Floyd County College &amp; Career Academy. New episodes premiere on Tuesdays and Thursdays." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Special Elite (typewriter), JetBrains Mono (slate/timecode), Inter, plus Sans Culottes CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/sans-culottes" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Tailwind Config matching FAME Website Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0a0a0a',
+            charcoal: '#121212',
+            slateDark: '#1c1c1c',
+            iron: '#2a2a2a',
+            ash: '#888888',
+            silver: '#b5b5b5',
+            chalk: '#f2f2f2',
+          },
+          fontFamily: {
+            display: ['"Sans Culottes"', '"Special Elite"', 'Impact', 'sans-serif'],
+            culottes: ['"Sans Culottes"', '"Special Elite"', 'Impact', 'sans-serif'],
+            typewriter: ['"Special Elite"', 'monospace'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'Sans Culottes';
+      src: local('Sans Culottes'), url('SansCulottes.woff2') format('woff2'), url('SansCulottes.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    html, body {
+      background-color: #0a0a0a;
+      color: #f2f2f2;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .font-display, .font-culottes {
+      font-family: 'Sans Culottes', 'Special Elite', Impact, sans-serif;
+    }
+    .font-typewriter {
+      font-family: 'Special Elite', monospace;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Subtle Film Grain Overlay */
+    .film-grain {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Film Strip Perforation Divider */
+    .film-strip-divider {
+      height: 22px;
+      background-color: #0a0a0a;
+      border-top: 2px solid #262626;
+      border-bottom: 2px solid #262626;
+      background-image: repeating-linear-gradient(
+        to right,
+        transparent 0px,
+        transparent 14px,
+        #222222 14px,
+        #222222 26px
+      );
+      background-size: 40px 10px;
+      background-repeat: repeat-x;
+      background-position: center;
+    }
+
+    /* Clapperboard Diagonal Slate Stripes */
+    .slate-stripes {
+      height: 12px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #e5e5e5,
+        #e5e5e5 14px,
+        #121212 14px,
+        #121212 28px
+      );
+    }
+
+    /* Distressed / Grungy Card Border */
+    .grunge-card {
+      background: linear-gradient(145deg, #161616 0%, #0e0e0e 100%);
+      border: 1px solid #2a2a2a;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .grunge-card:hover {
+      transform: translateY(-4px);
+      border-color: #666666;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    /* Dark Grungy Faded-White Border Box matching Homepage */
+    .grunge-faded-box {
+      position: relative;
+      background:
+        radial-gradient(circle at 12% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 88% 75%, rgba(255, 255, 255, 0.07) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(18, 18, 18, 0.92) 50%, rgba(255, 255, 255, 0.04) 100%);
+      border: 1px solid rgba(242, 242, 242, 0.42);
+      box-shadow:
+        0 0 0 1px rgba(242, 242, 242, 0.12),
+        inset 0 0 18px rgba(255, 255, 255, 0.07),
+        0 10px 25px rgba(0, 0, 0, 0.75);
+    }
+
+    .grunge-faded-box::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border: 1px dashed rgba(242, 242, 242, 0.25);
+      pointer-events: none;
+    }
+
+    /* Sparkly Gold Shimmer Tab for Awards matching Header Screenshot */
+    @keyframes goldShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes goldSparklePulse {
+      0%, 100% { opacity: 0.45; transform: scale(0.85) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(18deg); }
+    }
+
+    .sparkly-gold-tab {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: 0.25rem;
+      background: linear-gradient(
+        115deg,
+        #b8860b 0%,
+        #ffd700 22%,
+        #fff3b0 38%,
+        #daa520 55%,
+        #ffe875 74%,
+        #b8860b 100%
+      );
+      background-size: 240% 240%;
+      animation: goldShimmer 3.2s ease-in-out infinite;
+      color: #0a0a0a !important;
+      border: 1px solid rgba(255, 243, 176, 0.85);
+      box-shadow:
+        0 0 14px rgba(255, 215, 0, 0.42),
+        0 0 28px rgba(218, 165, 32, 0.22),
+        inset 0 1px 1px rgba(255, 255, 255, 0.85);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .sparkly-gold-tab:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 20px rgba(255, 215, 0, 0.72),
+        0 0 36px rgba(255, 232, 117, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.95);
+    }
+
+    .gold-sparkle-star {
+      animation: goldSparklePulse 2s infinite ease-in-out;
+    }
+
+    .gold-sparkle-star-delayed {
+      animation: goldSparklePulse 2.4s infinite ease-in-out 0.9s;
+    }
+
+    /* Filter button active state */
+    .filter-btn.active {
+      background-color: #f2f2f2;
+      color: #0a0a0a;
+      border-color: #f2f2f2;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333333;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555555;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-chalk antialiased selection:bg-chalk selection:text-obsidian">
+
+  <!-- Subtle Film Grain Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- 1. STICKY TOP HEADER NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-obsidian/95 backdrop-blur-md border-b border-iron">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Left: FAME Logo Lockup -->
+        <a href="index.html" target="_self" class="flex items-center gap-3 group focus:outline-none shrink-0">
+          <img
+            src="FAME_white.png"
+            alt="FAME Logo"
+            class="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.18)]"
+            onerror="this.style.display='none'; document.getElementById('fallback-logo').classList.remove('hidden');"
+          />
+          <span id="fallback-logo" class="hidden font-display text-2xl sm:text-3xl font-bold uppercase tracking-widest text-white">
+            FAME
+          </span>
+          <span class="hidden sm:inline-block h-5 w-[1px] bg-iron"></span>
+          <span class="hidden sm:inline-block font-mono text-[11px] uppercase tracking-widest text-silver group-hover:text-white transition-colors">
+            Floyd County CCA
+          </span>
+        </a>
+
+        <!-- Desktop Navigation (Podcasts active after FAME Socials and before Watch Reel) -->
+        <nav class="hidden lg:flex items-center space-x-5 xl:space-x-6" aria-label="Primary Navigation">
+          <a href="index.html#about" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">The Pathway</a>
+          <a href="index.html#teacher" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Meet The Teacher</a>
+          <a href="social.html" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">FAME Socials</a>
+          <a href="podcasts.html" target="_self" aria-current="page" class="font-display uppercase tracking-widest text-sm text-white border-b-2 border-white py-2">Podcasts</a>
+          <button
+            type="button"
+            data-open-reel
+            class="px-4 py-2 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver transition-colors cursor-pointer"
+          >
+            Watch Reel
+          </button>
+          <a
+            href="https://sites.google.com/floydboe.net/the-famecca-awards/full-page-embed"
+            target="_self"
+            class="sparkly-gold-tab font-display uppercase tracking-widest text-xs font-bold"
+            aria-label="FAMECCA Awards"
+          >
+            <svg class="w-3.5 h-3.5 text-black gold-sparkle-star" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <span>Awards</span>
+            <svg class="w-2.5 h-2.5 text-black gold-sparkle-star-delayed" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 1l2.1 5.9L18 9l-5.9 2.1L10 17l-2.1-5.9L2 9l5.9-2.1L10 1z"></path>
+            </svg>
+          </a>
+          <a href="sponsorships.html" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Sponsorships</a>
+          <a href="syllabus.html" target="_self" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Syllabus</a>
+          <a href="#contact" class="font-display uppercase tracking-widest text-sm text-silver hover:text-white transition-colors py-2">Contact</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="lg:hidden text-chalk p-2.5 rounded border border-iron hover:border-ash"
+          aria-label="Toggle Menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-charcoal border-b border-iron px-4 pt-3 pb-6 space-y-2.5">
+      <a href="index.html#about" target="_self" class="block px-3 py-2.5 rounded font-display uppercase tracking-widest text-sm text-silver hover:text-white hover:bg-slateDark">The Pathway</a>
+      <a href="index.html#teacher" target="_self" class="block px-3 py-2.5 rounded font-display uppercase tracking-widest text-sm text-silver hover:text-white hover:bg-slateDark">Meet The Teacher</a>
+      <a href="social.html" target="_self" class="block px-3 py-2.5 rounded font-display uppercase tracking-widest text-sm text-silver hover:text-white hover:bg-slateDark">FAME Socials</a>
+      <a href="podcasts.html" target="_self" aria-current="page" class="block px-3 py-2.5 rounded font-display uppercase tracking-widest text-sm text-white bg-slateDark border-l-2 border-white">Podcasts</a>
+      <button
+        type="button"
+        data-open-reel
+        class="w-full px-4 py-2.5 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver cursor-pointer"
+      >
+        Watch Reel
+      </button>
+      <div class="py-1">
+        <a
+          href="https://sites.google.com/floydboe.net/the-famecca-awards/full-page-embed"
+          target="_self"
+          class="sparkly-gold-tab font-display uppercase tracking-widest text-xs font-bold w-full justify-center py-2.5"
+        >
+          <svg class="w-3.5 h-3.5 text-black gold-sparkle-star" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+          </svg>
+          <span>Awards</span>
+          <svg class="w-2.5 h-2.5 text-black gold-sparkle-star-delayed" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 1l2.1 5.9L18 9l-5.9 2.1L10 17l-2.1-5.9L2 9l5.9-2.1L10 1z"></path>
+          </svg>
+        </a>
+      </div>
+      <a href="sponsorships.html" target="_self" class="block px-3 py-2.5 rounded font-display uppercase tracking-widest text-sm text-silver hover:text-white hover:bg-slateDark">Sponsorships</a>
+      <a href="syllabus.html" target="_self" class="block px-3 py-2.5 rounded font-display uppercase tracking-widest text-sm text-silver hover:text-white hover:bg-slateDark">Syllabus</a>
+      <a href="#contact" class="block px-3 py-2.5 rounded font-display uppercase tracking-widest text-sm text-silver hover:text-white hover:bg-slateDark">Contact</a>
+    </div>
+  </header>
+
+  <!-- 2. HERO BANNER FOR FAME PODCASTS -->
+  <section class="relative overflow-hidden border-b border-iron bg-gradient-to-b from-charcoal via-obsidian to-obsidian">
+    <div class="absolute inset-0 pointer-events-none opacity-25" style="background: radial-gradient(circle at 50% 0%, rgba(242,242,242,0.16), transparent 65%);" aria-hidden="true"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 relative z-10 text-center">
+      <!-- Glowing Red ON AIR Status Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slateDark border border-iron mb-6">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+        </span>
+        <span class="font-mono text-[11px] sm:text-xs tracking-[0.2em] uppercase text-chalk font-semibold">
+          ON AIR // STUDENT PODCAST NETWORK
+        </span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl tracking-wide uppercase text-chalk mb-6 drop-shadow">
+        FAME Podcasts
+      </h1>
+
+      <!-- Dark Grungy Faded-White Border Box matching Homepage -->
+      <div class="mb-8 flex justify-center">
+        <div class="grunge-faded-box inline-block px-6 sm:px-10 py-3 sm:py-4 rounded-sm">
+          <span class="absolute top-1 left-1 w-2 h-2 border-t border-l border-chalk/60"></span>
+          <span class="absolute top-1 right-1 w-2 h-2 border-t border-r border-chalk/60"></span>
+          <span class="absolute bottom-1 left-1 w-2 h-2 border-b border-l border-chalk/60"></span>
+          <span class="absolute bottom-1 right-1 w-2 h-2 border-b border-r border-chalk/60"></span>
+
+          <p class="font-typewriter text-base sm:text-xl lg:text-2xl text-chalk tracking-[0.14em] uppercase">
+            Student Voices &bull; Original Shows &bull; Weekly Premieres
+          </p>
+        </div>
+      </div>
+
+      <p class="max-w-3xl mx-auto text-sm sm:text-base text-silver leading-relaxed">
+        Produced, recorded, and edited inside the FAME Pathway studio at the <span class="text-chalk font-semibold">Floyd County College &amp; Career Academy</span>. Tune in every <span class="text-chalk font-semibold">Tuesday</span> and <span class="text-chalk font-semibold">Thursday</span> for new monthly episodes across sports, true crime, paranormal mysteries, and unfiltered student comedy.
+      </p>
+
+      <!-- Broadcast Schedule Filter Bar -->
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-3" role="group" aria-label="Filter podcasts by premiere day">
+        <button type="button" data-filter="all" class="filter-btn active px-5 py-2.5 rounded border border-iron bg-slateDark text-chalk font-mono text-xs font-bold uppercase tracking-widest hover:border-chalk transition-colors cursor-pointer">
+          All Shows (5)
+        </button>
+        <button type="button" data-filter="tuesday" class="filter-btn px-5 py-2.5 rounded border border-iron bg-slateDark text-silver font-mono text-xs font-bold uppercase tracking-widest hover:border-chalk hover:text-chalk transition-colors cursor-pointer">
+          <i class="fa-regular fa-calendar mr-1.5"></i> Tuesdays
+        </button>
+        <button type="button" data-filter="thursday" class="filter-btn px-5 py-2.5 rounded border border-iron bg-slateDark text-silver font-mono text-xs font-bold uppercase tracking-widest hover:border-chalk hover:text-chalk transition-colors cursor-pointer">
+          <i class="fa-regular fa-calendar mr-1.5"></i> Thursdays
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Film Strip Divider -->
+  <div class="film-strip-divider w-full" aria-hidden="true"></div>
+
+  <!-- 3. STUDENT PODCASTS SHOWCASE GRID -->
+  <section id="lineup" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 border-l-4 border-white pl-5">
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.25em] text-ash mb-1">STUDIO LINEUP // 16:9 BROADCASTS</p>
+        <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-wide text-chalk">
+          Student Podcasts
+        </h2>
+      </div>
+      <a
+        href="https://www.youtube.com/@famepathwayatthefcscca4336"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded bg-slateDark border border-iron hover:border-chalk font-mono text-xs uppercase tracking-widest text-chalk transition-colors self-start sm:self-auto"
+      >
+        <i class="fa-brands fa-youtube text-red-500 text-sm"></i>
+        <span>Watch Full Episodes on YouTube</span>
+      </a>
+    </div>
+
+    <!-- 2-Column Responsive Grid -->
+    <div id="podcast-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- =========================================================
+           PODCAST 1: UNSOLVED AND UNSEEN (1st Tuesday)
+      ========================================================== -->
+      <article class="podcast-card grunge-card rounded-xl overflow-hidden flex flex-col justify-between" data-day="tuesday">
+        <div>
+          <!-- 16:9 Thumbnail Frame -->
+          <a
+            href="https://www.youtube.com/playlist?list=PLbkj_5P0rTVw"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Unsolved and Unseen YouTube Playlist"
+            class="block relative aspect-video w-full bg-black border-b border-iron overflow-hidden group"
+          >
+            <img
+              src="unsloved and unseen at 1115 every tuesday.jpg"
+              data-fallbacks="unsloved%20and%20unseen%20at%201115%20every%20tuesday.jpg,unsolved_and_unseen.jpg,unsolved_and_unseen.png"
+              alt="Unsolved and Unseen Podcast Thumbnail"
+              class="podcast-thumb-img w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+              data-fallback-id="unsolved-fallback"
+            />
+            <div id="unsolved-fallback" class="hidden w-full h-full flex flex-col items-center justify-center bg-neutral-950 p-6 text-center">
+              <i class="fa-solid fa-magnifying-glass text-3xl text-silver mb-2"></i>
+              <p class="font-typewriter text-xl text-chalk uppercase tracking-wider">Unsolved and Unseen</p>
+              <p class="font-mono text-xs text-ash mt-1">16:9 Thumbnail &bull; unsloved and unseen at 1115 every tuesday.jpg</p>
+            </div>
+            <!-- Premiere Pill Overlay -->
+            <div class="absolute top-3 left-3 px-3 py-1 rounded bg-obsidian/90 border border-iron backdrop-blur-sm">
+              <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-chalk">
+                <i class="fa-solid fa-microphone-lines mr-1.5 text-red-500"></i>1st Tuesday &bull; 11:15 AM
+              </span>
+            </div>
+          </a>
+
+          <!-- Card Content -->
+          <div class="p-6 sm:p-7">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver">
+                Cold Cases &amp; Paranormal
+              </span>
+              <span class="font-mono text-xs text-ash">1st Tuesday of the Month</span>
+            </div>
+
+            <h3 class="font-typewriter text-2xl sm:text-3xl text-chalk mt-2 mb-3">
+              Unsolved and Unseen
+            </h3>
+
+            <p class="text-sm text-silver leading-relaxed">
+              The podcast talks about different cold cases and paranormal events that still don't have answers. It goes into stories about missing people, strange deaths, creepy experiences, and things that people can't really explain. The hosts discuss the evidence, what witnesses have said, and different theories about what could have happened. Some cases seem like they could have a normal explanation, while others are just strange and leave you wondering. I found the topic interesting because it shows how many mysteries are still out there and how some questions may never get answered. It also makes you think about whether everything has an explanation or if there are some things we just don't understand.
+            </p>
+          </div>
+        </div>
+
+        <div class="px-6 sm:px-7 pb-6 pt-3 border-t border-iron/70 flex items-center justify-between">
+          <span class="font-mono text-xs text-ash uppercase tracking-wider">FAME Studio Production</span>
+          <a
+            href="https://www.youtube.com/playlist?list=PLbkj_5P0rTVw"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-chalk hover:text-silver transition-colors"
+          >
+            <span>Listen on YouTube</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- =========================================================
+           PODCAST 2: WOKUS POKUS PODCAST (2nd Tuesday)
+      ========================================================== -->
+      <article class="podcast-card grunge-card rounded-xl overflow-hidden flex flex-col justify-between" data-day="tuesday">
+        <div>
+          <!-- 16:9 Thumbnail Frame (Displays square graphic cleanly without cropping) -->
+          <a
+            href="https://www.youtube.com/playlist?list=PLY-o3OV3gw7E"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Wokus Pokus Podcast YouTube Playlist"
+            class="relative aspect-video w-full bg-black border-b border-iron overflow-hidden flex items-center justify-center group"
+          >
+            <!-- Subtle blurred ambient background fill -->
+            <img
+              src="Insta Post_WP.jpg"
+              alt=""
+              aria-hidden="true"
+              class="absolute inset-0 w-full h-full object-cover blur-xl opacity-35 scale-110 pointer-events-none"
+              onerror="this.style.display='none';"
+            />
+            <img
+              src="Insta Post_WP.jpg"
+              data-fallbacks="Insta%20Post_WP.jpg,Insta_Post_WP.jpg,WokusPokus.jpg,WokusPokus.png"
+              alt="Wokus Pokus Podcast Thumbnail"
+              class="podcast-thumb-img relative z-10 h-full w-auto max-w-full object-contain group-hover:scale-[1.02] transition-transform duration-300"
+              data-fallback-id="wokus-fallback"
+            />
+            <div id="wokus-fallback" class="hidden relative z-10 w-full h-full flex flex-col items-center justify-center bg-neutral-950 p-6 text-center">
+              <i class="fa-solid fa-gamepad text-3xl text-silver mb-2"></i>
+              <p class="font-typewriter text-xl text-chalk uppercase tracking-wider">Wokus Pokus Podcast</p>
+              <p class="font-mono text-xs text-ash mt-1">Thumbnail &bull; Insta Post_WP.jpg</p>
+            </div>
+            <!-- Premiere Pill Overlay -->
+            <div class="absolute top-3 left-3 z-20 px-3 py-1 rounded bg-obsidian/90 border border-iron backdrop-blur-sm">
+              <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-chalk">
+                <i class="fa-solid fa-microphone-lines mr-1.5 text-red-500"></i>2nd Tuesday
+              </span>
+            </div>
+          </a>
+
+          <!-- Card Content -->
+          <div class="p-6 sm:p-7">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver">
+                Comedy, Games &amp; Stories
+              </span>
+              <span class="font-mono text-xs text-ash">2nd Tuesday of the Month</span>
+            </div>
+
+            <h3 class="font-typewriter text-2xl sm:text-3xl text-chalk mt-2 mb-3">
+              Wokus Pokus Podcast
+            </h3>
+
+            <p class="text-sm text-silver leading-relaxed">
+              Have you ever made a new word with another words before? Well we did! Welcome to the Wokus Pokus Podcast! This podcast is all about having fun and making bonds stronger! We play games and talk about fun stories we have from our lives. We have a strict NO AI policy, and each episode will unfurl into even more chaos than the last!
+            </p>
+          </div>
+        </div>
+
+        <div class="px-6 sm:px-7 pb-6 pt-3 border-t border-iron/70 flex items-center justify-between">
+          <span class="font-mono text-xs text-ash uppercase tracking-wider">Only @ YouTube // No AI Policy</span>
+          <a
+            href="https://www.youtube.com/playlist?list=PLY-o3OV3gw7E"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-chalk hover:text-silver transition-colors"
+          >
+            <span>Listen on YouTube</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- =========================================================
+           PODCAST 3: FRIGHT FACTOR (3rd Tuesday)
+      ========================================================== -->
+      <article class="podcast-card grunge-card rounded-xl overflow-hidden flex flex-col justify-between" data-day="tuesday">
+        <div>
+          <!-- 16:9 Thumbnail Frame -->
+          <a
+            href="https://www.youtube.com/playlist?list=PLZcvs5wV-U1w"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Fright Factor YouTube Playlist"
+            class="block relative aspect-video w-full bg-black border-b border-iron overflow-hidden group"
+          >
+            <img
+              src="FrightFactor_Youtube_V2.jpg"
+              data-fallbacks="FrightFactor_Youtube_V2.png,frightfactor_youtube_v2.jpg,FrightFactor_Youtube.jpg"
+              alt="Fright Factor Podcast Thumbnail"
+              class="podcast-thumb-img w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+              data-fallback-id="fright-fallback"
+            />
+            <div id="fright-fallback" class="hidden w-full h-full flex flex-col items-center justify-center bg-neutral-950 p-6 text-center">
+              <i class="fa-solid fa-ghost text-3xl text-silver mb-2"></i>
+              <p class="font-typewriter text-xl text-chalk uppercase tracking-wider">Fright Factor</p>
+              <p class="font-mono text-xs text-ash mt-1">16:9 Thumbnail &bull; FrightFactor_Youtube_V2.jpg</p>
+            </div>
+            <!-- Premiere Pill Overlay -->
+            <div class="absolute top-3 left-3 px-3 py-1 rounded bg-obsidian/90 border border-iron backdrop-blur-sm">
+              <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-chalk">
+                <i class="fa-solid fa-microphone-lines mr-1.5 text-red-500"></i>3rd Tuesday
+              </span>
+            </div>
+          </a>
+
+          <!-- Card Content -->
+          <div class="p-6 sm:p-7">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver">
+                Paranormal &amp; Scary Stories
+              </span>
+              <span class="font-mono text-xs text-ash">3rd Tuesday of the Month</span>
+            </div>
+
+            <h3 class="font-typewriter text-2xl sm:text-3xl text-chalk mt-2 mb-3">
+              Fright Factor
+            </h3>
+
+            <p class="text-sm text-silver leading-relaxed">
+              Step into the unexplained with a paranormal podcast where two co-hosts explore one chilling Reddit story in every episode. From mysterious encounters and ghostly sightings to unsettling experiences that defy explanation, each story is put under the spotlight. Together, the hosts discuss the details, question the evidence, and debate whether the events could actually be real. At the end of each episode, they rate the story on a scale of one to five on how believable and terrifying it is. Tune in, judge the stories for yourself, and decide whether you're listening to someone's imagination or something truly paranormal.
+            </p>
+          </div>
+        </div>
+
+        <div class="px-6 sm:px-7 pb-6 pt-3 border-t border-iron/70 flex items-center justify-between">
+          <span class="font-mono text-xs text-ash uppercase tracking-wider">FAME Studio Production</span>
+          <a
+            href="https://www.youtube.com/playlist?list=PLZcvs5wV-U1w"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-chalk hover:text-silver transition-colors"
+          >
+            <span>Listen on YouTube</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- =========================================================
+           PODCAST 4: OFF THE RECORDS (1st Thursday)
+      ========================================================== -->
+      <article class="podcast-card grunge-card rounded-xl overflow-hidden flex flex-col justify-between" data-day="thursday">
+        <div>
+          <!-- 16:9 Thumbnail Frame -->
+          <a
+            href="https://www.youtube.com/playlist?list=PLVH0PjUVb0ak"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Off the Records YouTube Playlist"
+            class="block relative aspect-video w-full bg-black border-b border-iron overflow-hidden group"
+          >
+            <img
+              src="OffTheRecords.jpg"
+              data-fallbacks="OffTheRecords.png,off_the_records.jpg,STTLG_YT_LOGO.jpg"
+              alt="Off the Records Podcast Thumbnail"
+              class="podcast-thumb-img w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+              data-fallback-id="otr-fallback"
+            />
+            <div id="otr-fallback" class="hidden w-full h-full flex flex-col items-center justify-center bg-neutral-950 p-6 text-center">
+              <i class="fa-solid fa-record-vinyl text-3xl text-silver mb-2"></i>
+              <p class="font-typewriter text-xl text-chalk uppercase tracking-wider">Off the Records</p>
+              <p class="font-mono text-xs text-ash mt-1">16:9 Thumbnail &bull; OffTheRecords.jpg</p>
+            </div>
+            <!-- Premiere Pill Overlay -->
+            <div class="absolute top-3 left-3 px-3 py-1 rounded bg-obsidian/90 border border-iron backdrop-blur-sm">
+              <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-chalk">
+                <i class="fa-solid fa-microphone-lines mr-1.5 text-red-500"></i>1st Thursday
+              </span>
+            </div>
+          </a>
+
+          <!-- Card Content -->
+          <div class="p-6 sm:p-7">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver">
+                Music, Culture &amp; Conversations
+              </span>
+              <span class="font-mono text-xs text-ash">1st Thursday of the Month</span>
+            </div>
+
+            <h3 class="font-typewriter text-2xl sm:text-3xl text-chalk mt-2 mb-3">
+              Off the Records
+            </h3>
+
+            <p class="text-sm text-silver leading-relaxed">
+              Unfiltered student conversations diving into music, pop culture, behind-the-scenes stories, and the moments that don't make the headlines—recorded live in the FAME Podcast Studio.
+            </p>
+          </div>
+        </div>
+
+        <div class="px-6 sm:px-7 pb-6 pt-3 border-t border-iron/70 flex items-center justify-between">
+          <span class="font-mono text-xs text-ash uppercase tracking-wider">FAME Studio Production</span>
+          <a
+            href="https://www.youtube.com/playlist?list=PLVH0PjUVb0ak"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-chalk hover:text-silver transition-colors"
+          >
+            <span>Listen on YouTube</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- =========================================================
+           PODCAST 5: CATCHING CORRUPT CORPS (2nd Thursday)
+      ========================================================== -->
+      <article class="podcast-card grunge-card rounded-xl overflow-hidden flex flex-col justify-between lg:col-span-2" data-day="thursday">
+        <div class="grid grid-cols-1 lg:grid-cols-12">
+          <!-- 16:9 Thumbnail Frame -->
+          <a
+            href="https://www.youtube.com/playlist?list=PLFzlvBB2AdA4"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Catching Corrupt Corps YouTube Playlist"
+            class="lg:col-span-6 block relative aspect-video w-full bg-black border-b lg:border-b-0 lg:border-r border-iron overflow-hidden group"
+          >
+            <img
+              src="CatchingCorruptCorps.jpg"
+              data-fallbacks="CatchingCorruptCorps.png,catching_corrupt_corps.jpg"
+              alt="Catching Corrupt Corps Podcast Thumbnail"
+              class="podcast-thumb-img w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+              data-fallback-id="corruptcorps-fallback"
+            />
+            <div id="corruptcorps-fallback" class="hidden w-full h-full flex flex-col items-center justify-center bg-neutral-950 p-6 text-center">
+              <i class="fa-solid fa-file-shield text-3xl text-silver mb-2"></i>
+              <p class="font-typewriter text-xl text-chalk uppercase tracking-wider">Catching Corrupt Corps</p>
+              <p class="font-mono text-xs text-ash mt-1">16:9 Thumbnail &bull; CatchingCorruptCorps.jpg</p>
+            </div>
+            <!-- Premiere Pill Overlay -->
+            <div class="absolute top-3 left-3 px-3 py-1 rounded bg-obsidian/90 border border-iron backdrop-blur-sm">
+              <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-chalk">
+                <i class="fa-solid fa-microphone-lines mr-1.5 text-red-500"></i>2nd Thursday
+              </span>
+            </div>
+          </a>
+
+          <!-- Card Content -->
+          <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-iron text-silver">
+                  True Crime &amp; Investigative Stories
+                </span>
+                <span class="font-mono text-xs text-ash">2nd Thursday of the Month</span>
+              </div>
+
+              <h3 class="font-typewriter text-2xl sm:text-3xl text-chalk mt-2 mb-3">
+                Catching Corrupt Corps
+              </h3>
+
+              <p class="text-sm sm:text-base text-silver leading-relaxed mb-6">
+                An investigative student podcast uncovering corporate scandals, notorious cover-ups, and real-world cases of greed and corruption—breaking down the facts and how they unfolded.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-iron/70 flex items-center justify-between">
+              <span class="font-mono text-xs text-ash uppercase tracking-wider">FAME Studio Production</span>
+              <a
+                href="https://www.youtube.com/playlist?list=PLFzlvBB2AdA4"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-chalk hover:text-silver transition-colors"
+              >
+                <span>Listen on YouTube</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Film Strip Divider -->
+  <div class="film-strip-divider w-full" aria-hidden="true"></div>
+
+  <!-- 4. FOOTER: Contact & Social Links -->
+  <footer id="contact" class="bg-obsidian border-t-2 border-iron relative">
+    <div class="slate-stripes w-full opacity-75"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+
+        <!-- Brand & Contact Callout (7 cols) -->
+        <div class="md:col-span-7 space-y-6">
+          <div class="flex flex-wrap items-center gap-4 sm:gap-5">
+            <div class="p-2.5 rounded-lg bg-charcoal border border-iron flex items-center justify-center">
+              <img
+                src="FAME_white.png"
+                alt="FAME Logo"
+                class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_2px_12px_rgba(255,255,255,0.18)]"
+                onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').classList.remove('hidden');"
+              />
+              <span id="footer-logo-fallback" class="hidden px-2 py-1 font-display text-2xl font-bold uppercase tracking-widest text-white">
+                FAME
+              </span>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-bold uppercase tracking-wider text-white">Connect With Us</h3>
+              <p class="font-mono text-xs text-ash mt-0.5">Floyd County College &amp; Career Academy</p>
+            </div>
+          </div>
+
+          <p class="text-chalk text-base sm:text-lg leading-relaxed max-w-xl">
+            Any questions about FAME or our student podcasts, please contact Mr. Williams on <strong class="text-white font-semibold">ParentSquare</strong> or through <strong class="text-white font-semibold">Email</strong>.
+          </p>
+
+          <!-- Email Action Bar -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+            <a
+              href="mailto:rickwilliams@floydboe.net"
+              class="inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-lg bg-white text-black font-display uppercase tracking-wider text-sm font-bold hover:bg-silver transition-colors"
+            >
+              <i class="fa-regular fa-envelope"></i>
+              <span>rickwilliams@floydboe.net</span>
+            </a>
+
+            <button
+              id="copy-email-btn"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-charcoal text-silver border border-iron hover:text-white hover:border-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              <i class="fa-regular fa-copy"></i>
+              <span id="copy-email-text">Copy Email</span>
+            </button>
+          </div>
+
+          <!-- ParentSquare Note -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded bg-charcoal border border-iron text-xs font-mono text-silver">
+            <span class="w-2 h-2 rounded-full bg-silver"></span>
+            <span>Parents &amp; Students: Direct messaging available via ParentSquare</span>
+          </div>
+        </div>
+
+        <!-- Social Media Links (5 cols) -->
+        <div class="md:col-span-5 md:pl-8 md:border-l border-iron space-y-5">
+          <h4 class="font-display text-lg uppercase tracking-widest text-white">Follow Our Productions</h4>
+          <p class="text-sm text-silver">
+            Watch full podcast episodes on YouTube and follow behind-the-scenes studio clips on Instagram.
+          </p>
+
+          <div class="space-y-3">
+            <!-- Instagram Link -->
+            <a
+              href="https://www.instagram.com/fame_cca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between p-4 rounded-lg bg-charcoal border border-iron hover:bg-white hover:border-white transition-all"
+            >
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-md bg-obsidian text-white group-hover:bg-black flex items-center justify-center border border-iron">
+                  <i class="fa-brands fa-instagram text-lg"></i>
+                </div>
+                <div>
+                  <span class="font-display uppercase tracking-wider text-white group-hover:text-black block text-sm font-bold">Instagram</span>
+                  <span class="font-mono text-xs text-ash group-hover:text-black/70">@fame_cca</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-right text-silver group-hover:text-black transform group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <!-- YouTube Link -->
+            <a
+              href="https://www.youtube.com/@famepathwayatthefcscca4336"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between p-4 rounded-lg bg-charcoal border border-iron hover:bg-white hover:border-white transition-all"
+            >
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-md bg-obsidian text-white group-hover:bg-black flex items-center justify-center border border-iron">
+                  <i class="fa-brands fa-youtube text-lg"></i>
+                </div>
+                <div>
+                  <span class="font-display uppercase tracking-wider text-white group-hover:text-black block text-sm font-bold">YouTube</span>
+                  <span class="font-mono text-xs text-ash group-hover:text-black/70">FAME Pathway @ FCS CCA</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-right text-silver group-hover:text-black transform group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="mt-14 pt-8 border-t border-iron flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-ash">
+        <p>&copy; <span id="current-year"></span> FAME Pathway — Floyd County College &amp; Career Academy. All Rights Reserved.</p>
+        <p>Film &bull; Arts &bull; Media &bull; Entertainment</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 5. THEATER PROMO REEL LIGHTBOX MODAL -->
+  <div id="reel-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="reel-modal-title">
+    <div class="relative w-full max-w-4xl rounded-xl bg-obsidian border border-iron shadow-[0_25px_70px_rgba(0,0,0,0.95)] overflow-hidden">
+      <div class="slate-stripes w-full opacity-80"></div>
+      <div class="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-charcoal border-b border-iron">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.85)] animate-pulse"></span>
+          <h3 id="reel-modal-title" class="font-mono text-xs sm:text-sm uppercase tracking-widest text-white">
+            FAME PATHWAY // OFFICIAL PROMO REEL
+          </h3>
+        </div>
+        <button
+          id="close-reel-btn"
+          type="button"
+          aria-label="Close Promo Reel"
+          class="w-9 h-9 rounded-lg bg-slateDark border border-iron text-silver hover:text-white hover:border-white flex items-center justify-center text-xl leading-none transition-colors cursor-pointer"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="relative bg-black aspect-video w-full flex items-center justify-center">
+        <video
+          id="promo-reel-video"
+          controls
+          playsinline
+          class="w-full h-full object-contain bg-black"
+        >
+          <source src="FAMEpromo.mp4" type="video/mp4" />
+          <source src="video_1.mp4" type="video/mp4" />
+        </video>
+        <div id="reel-video-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-obsidian/95">
+          <i class="fa-solid fa-film text-4xl text-ash mb-3"></i>
+          <p class="font-display uppercase tracking-widest text-white text-lg mb-1">FAME Official Promo Reel</p>
+          <p class="font-mono text-xs text-silver max-w-md mb-4">
+            Place <span class="text-white">FAMEpromo.mp4</span> in the same folder as <span class="text-white">podcasts.html</span> to play locally, or watch student productions on our YouTube channel.
+          </p>
+          <a href="https://www.youtube.com/@famepathwayatthefcscca4336" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded bg-white text-black font-display uppercase tracking-widest text-xs font-bold hover:bg-silver transition-colors">
+            Watch on FAME YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dynamic Copyright Year
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // Broadcast Day Filter Buttons (All Shows, Tuesdays, Thursdays)
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const podcastCards = document.querySelectorAll('.podcast-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const selectedDay = btn.getAttribute('data-filter');
+
+          filterBtns.forEach(b => {
+            b.classList.remove('active');
+            b.classList.add('text-silver');
+          });
+          btn.classList.add('active');
+          btn.classList.remove('text-silver');
+
+          podcastCards.forEach(card => {
+            const cardDay = card.getAttribute('data-day');
+            if (selectedDay === 'all' || cardDay === selectedDay) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Multi-Extension Image Fallback Handler
+      const thumbImages = document.querySelectorAll('.podcast-thumb-img');
+      thumbImages.forEach(img => {
+        const fallbacks = (img.getAttribute('data-fallbacks') || '')
+          .split(',')
+          .map(s => s.trim())
+          .filter(Boolean);
+        let attemptIndex = 0;
+
+        img.addEventListener('error', () => {
+          if (attemptIndex < fallbacks.length) {
+            img.src = fallbacks[attemptIndex];
+            attemptIndex++;
+          } else {
+            img.classList.add('hidden');
+            const fallbackId = img.getAttribute('data-fallback-id');
+            const fallbackEl = fallbackId ? document.getElementById(fallbackId) : null;
+            if (fallbackEl) {
+              fallbackEl.classList.remove('hidden');
+            }
+          }
+        });
+      });
+
+      // Mobile Navigation Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden');
+          mobileBtn.setAttribute('aria-expanded', String(isHidden));
+        });
+      }
+
+      // Copy Email Helper
+      const copyBtn = document.getElementById('copy-email-btn');
+      const copyText = document.getElementById('copy-email-text');
+      if (copyBtn && copyText) {
+        copyBtn.addEventListener('click', () => {
+          const email = 'rickwilliams@floydboe.net';
+          const tempInput = document.createElement('textarea');
+          tempInput.value = email;
+          tempInput.style.position = 'fixed';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          try {
+            document.execCommand('copy');
+            copyText.textContent = 'Copied!';
+            copyBtn.classList.add('border-white', 'text-white');
+            setTimeout(() => {
+              copyText.textContent = 'Copy Email';
+              copyBtn.classList.remove('border-white', 'text-white');
+            }, 2200);
+          } catch (err) {
+            copyText.textContent = email;
+          }
+          document.body.removeChild(tempInput);
+        });
+      }
+
+      // Promo Reel Lightbox Modal
+      const reelModal = document.getElementById('reel-modal');
+      const reelVideo = document.getElementById('promo-reel-video');
+      const reelFallback = document.getElementById('reel-video-fallback');
+      const closeReelBtn = document.getElementById('close-reel-btn');
+      const openReelTriggers = document.querySelectorAll('[data-open-reel]');
+
+      if (reelVideo && reelFallback) {
+        const sources = reelVideo.querySelectorAll('source');
+        const lastSource = sources[sources.length - 1];
+        if (lastSource) {
+          lastSource.addEventListener('error', () => {
+            reelFallback.classList.remove('hidden');
+          });
+        }
+      }
+
+      const openReelModal = () => {
+        if (!reelModal || !reelVideo) return;
+        reelModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        reelVideo.currentTime = 0;
+        const playPromise = reelVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      };
+
+      const closeReelModal = () => {
+        if (!reelModal || !reelVideo) return;
+        reelVideo.pause();
+        reelVideo.currentTime = 0;
+        reelModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      };
+
+      openReelTriggers.forEach(btn => btn.addEventListener('click', openReelModal));
+      if (closeReelBtn) closeReelBtn.addEventListener('click', closeReelModal);
+      if (reelModal) {
+        reelModal.addEventListener('click', (e) => {
+          if (e.target === reelModal) closeReelModal();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && reelModal && !reelModal.classList.contains('hidden')) {
+          closeReelModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
